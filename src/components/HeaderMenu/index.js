@@ -27,7 +27,14 @@ const MenuItem = withStyles({
   },
 })(MuiMenuItem);
 
-const HeaderMenu = ({ open, handleClose, anchorEl, username, avatar }) => {
+const HeaderMenu = ({
+  open,
+  handleClose,
+  anchorEl,
+  username,
+  avatar,
+  onLogout,
+}) => {
   const classes = useStyles();
   return (
     <div>
@@ -54,7 +61,7 @@ const HeaderMenu = ({ open, handleClose, anchorEl, username, avatar }) => {
         <MenuItem>Подписки</MenuItem>
         <Divider></Divider>
         <MenuItem>Настройки</MenuItem>
-        <MenuItem>Выход</MenuItem>
+        <MenuItem onClick={onLogout}>Выход</MenuItem>
       </Menu>
     </div>
   );
