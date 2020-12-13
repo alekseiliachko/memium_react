@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "../redux/reducer";
 import { LoginPage } from "../pages/LoginPage";
 import { SignupPage } from "../pages/SignupPage";
+import { restoreSessionAttempt } from "../redux/auth/actions";
 
 const store = configureStore();
 
 const App = () => {
+  useEffect(() => {
+    store.dispatch(restoreSessionAttempt());
+  }, []);
+
   return (
     <Provider store={store}>
       <BrowserRouter>

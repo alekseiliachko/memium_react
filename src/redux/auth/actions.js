@@ -14,9 +14,13 @@ export const loginSuccess = (username) => ({
   payload: username,
 });
 
-export const logout = () => ({
-  type: LOG_OUT,
-});
+export const logout = () => async (dispatch) => {
+  localStorage.removeItem("memium_token");
+  localStorage.removeItem("name");
+  return {
+    type: LOG_OUT,
+  };
+};
 
 export const authFailure = (err) => ({
   type: AUTH_FAILURE,
@@ -27,9 +31,17 @@ export const signupSuccess = () => ({
   type: SIGNUP_SUCCESS,
 });
 
+export const restoreSessionAttempt = () => (dispatch) => {
+  if (localStorage.memium_token) {
+    AuthController.updateAuthHeader(localStorage.memium_token);
+    dispatch(loginSuccess(localStorage.name));
+  }
+};
+
 export const loginAttempt = (userInfo) => async (dispatch) => {
   const res = await AuthController.login(userInfo);
   AuthController.updateAuthHeader(res.data.token);
+  localStorage.setItem("name", res.data.username);
   dispatch(loginSuccess(res.data.username));
 };
 
