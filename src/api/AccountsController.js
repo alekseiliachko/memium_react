@@ -31,12 +31,18 @@ class AccountsController extends APIController {
   }
 
   async updateBlackList(userID) {
-    const updateStatus = await this.request("post", `/accounts/${userID}/blacklist/`);
+    const updateStatus = await this.request(
+      "post",
+      `/accounts/${userID}/blacklist/`
+    );
     return updateStatus;
   }
 
   async updateSubscribersList(userID) {
-    const updateStatus = await this.request("post", `/accounts/${userID}/like/`);
+    const updateStatus = await this.request(
+      "post",
+      `/accounts/${userID}/like/`
+    );
     return updateStatus;
   }
 

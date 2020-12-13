@@ -21,7 +21,9 @@ const LoginForm = ({ onSubmit, formState, handleChange }) => {
       </Typography>
       <form>
         {formState.error ? (
-          <Box my="1rem"><Alert severity="error">{formState.error}</Alert></Box>
+          <Box my="1rem">
+            <Alert severity="error">{formState.error}</Alert>
+          </Box>
         ) : null}
         <Box mb="1rem">
           <TextField

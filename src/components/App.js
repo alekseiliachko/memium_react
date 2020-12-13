@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "../redux/reducer";
-import { LoginPage, SignupPage } from "../pages";
+import { LoginPage } from "../pages/LoginPage";
+import { SignupPage } from "../pages/SignupPage";
 
 const store = configureStore();
 
