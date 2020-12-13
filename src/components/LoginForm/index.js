@@ -1,3 +1,8 @@
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Alert from "@material-ui/lab/Alert";
+import { LockOpenOutlined } from "@material-ui/icons";
 import {
   Container,
   TextField,
@@ -5,12 +10,40 @@ import {
   Box,
   Typography,
 } from "@material-ui/core";
-import { LockOpenOutlined } from "@material-ui/icons";
-import { Link } from "react-router-dom";
-import React from "react";
-import Alert from "@material-ui/lab/Alert";
 
-const LoginForm = ({ onSubmit, formState, handleChange }) => {
+const LoginForm = ({ onLogin }) => {
+  const initialState = {
+    user: { username: "", password: "" },
+    loading: false,
+    error: null,
+  };
+  const [formState, setFormState] = useState(initialState);
+  const history = useHistory();
+  const onSubmit = (e) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      loading: true,
+    }));
+    e.preventDefault();
+    onLogin(formState.user)
+      .then((res) => {
+        history.push("/home");
+      })
+      .catch((err) => {
+        setFormState((prevState) => ({
+          ...prevState,
+          loading: false,
+          error: "Неверные логин или пароль",
+        }));
+      });
+  };
+  const handleChange = (e) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      user: { ...prevState.user, [e.target.name]: e.target.value },
+      error: null,
+    }));
+  };
   return (
     <Container maxWidth="xs" className="login-form" onSubmit={onSubmit}>
       <Box display="flex" justifyContent="center">
