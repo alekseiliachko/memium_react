@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Container,
   TextField,
@@ -8,12 +10,50 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import { HowToReg } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 
 const genders = ["Male", "Female", "Another"];
 
-const SignupForm = ({ onSubmit, formState, handleChange }) => {
+const SignupForm = ({ onSignUp }) => {
+  const initialState = {
+    user: {
+      username: "",
+      password: "",
+      bio: "",
+      gender: "Another",
+      name: "",
+      email: "",
+    },
+    loading: false,
+    error: null,
+  };
+  const [formState, setFormState] = useState(initialState);
+  const history = useHistory();
+  const onSubmit = (e) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      loading: true,
+    }));
+    e.preventDefault();
+    onSignUp(formState.user)
+      .then((res) => {
+        history.push("/login");
+      })
+      .catch((err) => {
+        setFormState((prevState) => ({
+          ...prevState,
+          loading: false,
+          error: "Проверьте введенные вами данные!",
+        }));
+      });
+  };
+  const handleChange = (e) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      user: { ...prevState.user, [e.target.name]: e.target.value },
+      error: null,
+    }));
+  };
   return (
     <Container maxWidth="xs" className="login-form" onSubmit={onSubmit}>
       <Box display="flex" justifyContent="center">
