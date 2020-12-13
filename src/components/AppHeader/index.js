@@ -33,7 +33,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const AppHeader = ({ username, avatar }) => {
+const AppHeader = ({ username, avatar, onLogout }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -82,6 +82,7 @@ const AppHeader = ({ username, avatar }) => {
               anchorEl={anchorEl}
               username={username}
               avatar={avatar}
+              onLogout={onLogout}
             />
           </Toolbar>
         </Container>
