@@ -2,6 +2,7 @@ import { LOGIN_SUCCESS, LOG_OUT } from "./actions";
 
 const initialState = {
   username: "",
+  isAuthPresent: false,
 };
 
 export const authReducer = (store = initialState, action) => {
@@ -10,12 +11,13 @@ export const authReducer = (store = initialState, action) => {
       return {
         ...store,
         username: action.payload,
+        isAuthPresent: true,
       };
     case LOG_OUT:
-      localStorage.removeItem("memium_token");
       return {
         ...store,
         username: "",
+        isAuthPresent: false,
       };
     default:
       return store;
