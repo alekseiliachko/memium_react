@@ -1,10 +1,10 @@
 import React from "react";
-import LoginForm from "../containers/LoginContainer";
+import { LoginFormContainer } from "../containers/LoginContainer";
 
 export const LoginPage = () => {
   return (
     <div className="login-page content-center">
-      <LoginForm />
+      <LoginFormContainer />
     </div>
   );
 };

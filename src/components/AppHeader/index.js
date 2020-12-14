@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import HeaderMenu from "../HeaderMenu";
+import React, { useState, useEffect } from "react";
+import { HeaderMenu } from "../HeaderSubMenu";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../../assets/Logo.svg";
 import {
@@ -16,13 +16,12 @@ import BookmarkIcon from "@material-ui/icons/BookmarkBorder";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
-    marginRight: ".2rem",
     color: "#555555",
   },
   title: {
     flexGrow: 1,
     color: "#4E4E4E",
-    marginLeft: "1rem",
+    marginLeft: "10px",
     fontWeight: "bold",
   },
   header: {
@@ -30,14 +29,17 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     cursor: "pointer",
-    marginLeft: "1rem",
-  },
-  margin: {
-    margin: theme.spacing(1),
+    marginLeft: "20px",
   },
 }));
 
-const AppHeader = ({ username, avatar, onLogout }) => {
+export const AppHeader = ({
+  username,
+  avatar,
+  onLogout,
+  loadAvatar,
+  avatarLoadingStatus,
+}) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
@@ -99,5 +101,3 @@ const AppHeader = ({ username, avatar, onLogout }) => {
     </div>
   );
 };
-
-export default AppHeader;

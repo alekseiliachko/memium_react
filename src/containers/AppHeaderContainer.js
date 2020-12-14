@@ -1,4 +1,4 @@
-import AppHeader from "../components/AppHeader";
+import { AppHeader } from "../components/AppHeader";
 import { connect } from "react-redux";
 import { logout } from "../redux/auth/actions";
 
@@ -10,4 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
   onLogout: () => dispatch(logout()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppHeader);
+export const AppHeaderContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppHeader);

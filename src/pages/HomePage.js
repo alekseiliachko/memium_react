@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../containers/AppHeaderContainer";
+import { AppHeaderContainer } from "../containers/AppHeaderContainer";
 
 export const HomePage = () => {
   return (
     <div className="home-page">
-      <Header />
+      <AppHeaderContainer />
     </div>
   );
 };

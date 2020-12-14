@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-const LoginForm = ({ onLogin }) => {
+export const LoginForm = ({ onLogin }) => {
   const initialState = {
     user: { username: "", password: "" },
     loading: false,
@@ -54,11 +54,11 @@ const LoginForm = ({ onLogin }) => {
       </Typography>
       <form>
         {formState.error ? (
-          <Box my="1rem">
+          <Box my="10px">
             <Alert severity="error">{formState.error}</Alert>
           </Box>
         ) : null}
-        <Box mb="1rem">
+        <Box mb="15px">
           <TextField
             name="username"
             required
@@ -69,7 +69,7 @@ const LoginForm = ({ onLogin }) => {
             onChange={handleChange}
           />
         </Box>
-        <Box mb="1rem">
+        <Box mb="15px">
           <TextField
             name="password"
             required
@@ -91,7 +91,7 @@ const LoginForm = ({ onLogin }) => {
         >
           Log in
         </Button>
-        <Box display="flex" justifyContent="space-between" mt="1rem">
+        <Box display="flex" justifyContent="space-between" mt="15px">
           <Link to="/forgot-password">Забыли пароль?</Link>
           <Link to="/signup">Зарегистрироваться</Link>
         </Box>
@@ -99,5 +99,3 @@ const LoginForm = ({ onLogin }) => {
     </Container>
   );
 };
-
-export default LoginForm;
