@@ -1,73 +1,62 @@
 import APIController from "./ApiController";
 
-<<<<<<< HEAD
-class AccountsController extends APIController {
-=======
 class АccountController extends APIController {
->>>>>>> Фиксим проблемы, которые нашел саша
   constructor() {
     super();
   }
 
   async getAvatarImage() {
-    const avatar = await this.request("get", "/accounts/image");
+    const avatar = await this.request("get", "/account/avatar");
     return avatar;
   }
 
   async getUserMeta() {
-    const avatar = await this.request("get", "/accounts/image/");
+    const avatar = await this.request("get", "/account/image/");
     return avatar;
   }
 
   async getRecommendedUsers() {
-    const users = await this.request("get", "/accounts/home/");
+    const users = await this.request("get", "/account/home/");
     return users;
   }
 
   async getSubscribersList() {
-    const users = await this.request("get", "/accounts/liked/");
+    const users = await this.request("get", "/account/liked/");
     return users;
   }
 
   async getBlackListUsers() {
-    const users = await this.request("get", "/accounts/blacklisted/");
+    const users = await this.request("get", "/account/blacklisted/");
     return users;
   }
 
   async updateBlackList(userID) {
     const updateStatus = await this.request(
       "post",
-      `/accounts/${userID}/blacklist/`
+      `/account/${userID}/blacklist/`
     );
     return updateStatus;
   }
 
   async updateSubscribersList(userID) {
-    const updateStatus = await this.request(
-      "post",
-      `/accounts/${userID}/like/`
-    );
+    const updateStatus = await this.request("post", `/account/${userID}/like/`);
     return updateStatus;
   }
 
   async updateMeta(meta) {
-    const updateStatus = await this.request("put", `/accounts/meta/`, meta);
+    const updateStatus = await this.request("put", `/account/meta/`, meta);
     return updateStatus;
   }
 
   async updateUserData(userData) {
-    const updateStatus = await this.request("put", `/accounts/self/`, userData);
+    const updateStatus = await this.request("put", `/account/self/`, userData);
     return updateStatus;
   }
 
   async updateAvatar(avatar) {
-    const updateStatus = await this.request("put", `/accounts/image/`, avatar);
+    const updateStatus = await this.request("put", `/account/image/`, avatar);
     return updateStatus;
   }
 }
 
-<<<<<<< HEAD
-export default new AccountsController();
-=======
 export default new АccountController();
->>>>>>> Фиксим проблемы, которые нашел саша

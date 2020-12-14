@@ -18,7 +18,7 @@ export const setAuthStatusSuccess = (username) => ({
   payload: username,
 });
 
-export const logout = () => async (dispatch) => {
+export const logout = () => {
   localStorage.removeItem("memium_token");
   localStorage.removeItem("name");
   return {
