@@ -9,7 +9,11 @@ export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 
 export const AUTH_FAILURE = "AUTH_FAILURE";
 
-export const loginSuccess = (username) => ({
+export const setAuthStatusAttempt = () => ({
+  type: LOGIN_ATTEMPT,
+});
+
+export const setAuthStatusSuccess = (username) => ({
   type: LOGIN_SUCCESS,
   payload: username,
 });
@@ -32,17 +36,21 @@ export const signupSuccess = () => ({
 });
 
 export const restoreSessionAttempt = () => (dispatch) => {
+  dispatch(setAuthStatusAttempt());
   if (localStorage.memium_token) {
     AuthController.updateAuthHeader(localStorage.memium_token);
-    dispatch(loginSuccess(localStorage.name));
+    dispatch(setAuthStatusSuccess(localStorage.name));
+  } else {
+    dispatch(logout());
   }
 };
 
 export const loginAttempt = (userInfo) => async (dispatch) => {
+  dispatch(setAuthStatusAttempt());
   const res = await AuthController.login(userInfo);
   AuthController.updateAuthHeader(res.data.token);
   localStorage.setItem("name", res.data.username);
-  dispatch(loginSuccess(res.data.username));
+  dispatch(setAuthStatusSuccess(res.data.username));
 };
 
 export const signupAttempt = (userInfo) => async (dispatch) => {
