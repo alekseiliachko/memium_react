@@ -1,4 +1,9 @@
-import { AVATAR_LOADED, ATTEMPT_LOAD_AVATAR } from "./actions";
+import {
+  AVATAR_LOADED,
+  ATTEMPT_LOAD_AVATAR,
+  ATTEMPT_LOAD_DETAILS,
+  DETAILS_LOADED,
+} from "./actions";
 
 export const LOADING_STATUS = {
   NOT_LOADED: "NOT_LOADED",
@@ -11,6 +16,7 @@ const initialState = {
   blackList: [],
   details: {},
   avatarLoadingStatus: LOADING_STATUS.NOT_LOADED,
+  detailsLoadingStatus: LOADING_STATUS.NOT_LOADED,
 };
 
 export const userReducer = (store = initialState, action) => {
@@ -25,6 +31,17 @@ export const userReducer = (store = initialState, action) => {
       return {
         ...store,
         avatarLoadingStatus: LOADING_STATUS.LOADING,
+      };
+    case DETAILS_LOADED:
+      return {
+        ...store,
+        details: action.payload,
+        detailsLoadingStatus: LOADING_STATUS.LOADED,
+      };
+    case ATTEMPT_LOAD_DETAILS:
+      return {
+        ...store,
+        detailsLoadingStatus: LOADING_STATUS.LOADING,
       };
     default:
       return store;

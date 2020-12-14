@@ -7,6 +7,7 @@ import { SignupPage } from "../pages/SignupPage";
 import { restoreSessionAttempt } from "../redux/auth/actions";
 import { PrivateRouteContainer } from "../containers/PrivateRouteContainer";
 import { HomePage } from "../pages/HomePage";
+import { ProfilePage } from "../pages/ProfilePage";
 
 const store = configureStore();
 
@@ -23,6 +24,9 @@ const App = () => {
           <Route exact path="/signup" component={SignupPage} />
           <PrivateRouteContainer path="/home">
             <HomePage />
+          </PrivateRouteContainer>
+          <PrivateRouteContainer path="/profile">
+            <ProfilePage />
           </PrivateRouteContainer>
         </Switch>
       </BrowserRouter>
