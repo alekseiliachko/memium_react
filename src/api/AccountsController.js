@@ -10,8 +10,8 @@ class АccountController extends APIController {
     return avatar;
   }
 
-  async getUserMeta() {
-    const avatar = await this.request("get", "/account/image/");
+  async getUserDetails() {
+    const avatar = await this.request("get", "/account/details");
     return avatar;
   }
 
