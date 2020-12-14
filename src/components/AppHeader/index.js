@@ -9,11 +9,12 @@ import {
   Typography,
   IconButton,
   Container,
+  TextField,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import BookmarkIcon from "@material-ui/icons/BookmarkBorder";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: ".2rem",
     color: "#555555",
@@ -31,11 +32,15 @@ const useStyles = makeStyles(() => ({
     cursor: "pointer",
     marginLeft: "1rem",
   },
+  margin: {
+    margin: theme.spacing(1),
+  },
 }));
 
 const AppHeader = ({ username, avatar, onLogout }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [showSearch, setShowSearch] = useState(false);
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {
@@ -59,9 +64,13 @@ const AppHeader = ({ username, avatar, onLogout }) => {
               className={classes.menuButton}
               aria-label="search"
               color="inherit"
+              onClick={() => setShowSearch(!showSearch)}
             >
               <SearchIcon />
             </IconButton>
+            {showSearch && (
+              <TextField type="search" placeholder="Поиск" size="small" />
+            )}
             <IconButton
               className={classes.menuButton}
               aria-label="bookmark"
