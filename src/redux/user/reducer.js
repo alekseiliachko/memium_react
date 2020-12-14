@@ -3,6 +3,9 @@ import {
   ATTEMPT_LOAD_AVATAR,
   ATTEMPT_LOAD_DETAILS,
   DETAILS_LOADED,
+  SUBS_LOADED,
+  ATTEMPT_LOAD_SUBS,
+  ATTEMPT_UPDATE_DETAILS,
 } from "./actions";
 
 export const LOADING_STATUS = {
@@ -14,9 +17,15 @@ export const LOADING_STATUS = {
 const initialState = {
   avatar: "",
   blackList: [],
-  details: {},
+  details: {
+    bio: "",
+    gender: "Another",
+    name: "",
+  },
+  subs: [],
   avatarLoadingStatus: LOADING_STATUS.NOT_LOADED,
   detailsLoadingStatus: LOADING_STATUS.NOT_LOADED,
+  subsLoadingStatus: LOADING_STATUS.NOT_LOADED,
 };
 
 export const userReducer = (store = initialState, action) => {
@@ -39,6 +48,22 @@ export const userReducer = (store = initialState, action) => {
         detailsLoadingStatus: LOADING_STATUS.LOADED,
       };
     case ATTEMPT_LOAD_DETAILS:
+      return {
+        ...store,
+        detailsLoadingStatus: LOADING_STATUS.LOADING,
+      };
+    case SUBS_LOADED:
+      return {
+        ...store,
+        subs: action.payload,
+        subsLoadingStatus: LOADING_STATUS.LOADED,
+      };
+    case ATTEMPT_LOAD_SUBS:
+      return {
+        ...store,
+        subsLoadingStatus: LOADING_STATUS.LOADING,
+      };
+    case ATTEMPT_UPDATE_DETAILS:
       return {
         ...store,
         detailsLoadingStatus: LOADING_STATUS.LOADING,

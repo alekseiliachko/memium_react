@@ -21,7 +21,7 @@ class АccountController extends APIController {
   }
 
   async getSubscribersList() {
-    const users = await this.request("get", "/account/liked/");
+    const users = await this.request("get", "/account/sub");
     return users;
   }
 
@@ -43,9 +43,13 @@ class АccountController extends APIController {
     return updateStatus;
   }
 
-  async updateMeta(meta) {
-    const updateStatus = await this.request("put", `/account/meta/`, meta);
-    return updateStatus;
+  async updateDetails(details) {
+    const updatedDetails = await this.request(
+      "put",
+      `/account/details`,
+      details
+    );
+    return updatedDetails;
   }
 
   async updateUserData(userData) {
