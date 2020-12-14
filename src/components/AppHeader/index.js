@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HeaderMenu } from "../HeaderSubMenu";
+import { HeaderMenu } from "../HeaderMenu";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../../assets/Logo.svg";
 import {
@@ -13,8 +13,9 @@ import {
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import BookmarkIcon from "@material-ui/icons/BookmarkBorder";
+import { LOADING_STATUS } from "../../redux/user/reducer";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   menuButton: {
     color: "#555555",
   },
@@ -52,6 +53,12 @@ export const AppHeader = ({
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+    if (avatarLoadingStatus == LOADING_STATUS.NOT_LOADED) {
+      loadAvatar();
+    }
+  }, []);
 
   return (
     <div>

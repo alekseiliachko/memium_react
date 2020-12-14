@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Menu, Avatar, Box, Typography, Divider } from "@material-ui/core";
 import MuiMenuItem from "@material-ui/core/MenuItem";
@@ -58,12 +59,22 @@ export const HeaderMenu = ({
           <Avatar className={classes.avatar} src={avatar}></Avatar>
           <Typography>{username}</Typography>
         </Box>
-        <MenuItem>Мои статьи</MenuItem>
-        <MenuItem>Добавить статью</MenuItem>
-        <MenuItem>Понравившиеся</MenuItem>
-        <MenuItem>Подписки</MenuItem>
+        <Link to="/my-articles">
+          <MenuItem>Мои статьи</MenuItem>
+        </Link>
+        <Link to="/new-article">
+          <MenuItem>Добавить статью</MenuItem>
+        </Link>
+        <Link to="/liked-articles">
+          <MenuItem>Понравившиеся</MenuItem>
+        </Link>
+        <Link to="/my-subs">
+          <MenuItem>Подписки</MenuItem>
+        </Link>
         <Divider></Divider>
-        <MenuItem>Настройки</MenuItem>
+        <Link to="/settings">
+          <MenuItem>Настройки</MenuItem>
+        </Link>
         <MenuItem onClick={onLogout}>Выход</MenuItem>
       </Menu>
     </div>

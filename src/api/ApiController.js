@@ -1,5 +1,5 @@
 import axios from "axios";
-export const BASE_URL = "http://localhost:8087/api";
+export const BASE_URL = "/api";
 axios.defaults.baseURL = BASE_URL;
 
 export default class APIController {
