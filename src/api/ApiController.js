@@ -10,9 +10,6 @@ export default class APIController {
 
   async request(method, url, data = {}) {
     const response = await this.axios[method](url, data);
-    if (response.status !== 200) {
-      throw new Error(response.status);
-    }
     return response;
   }
 

@@ -14,7 +14,7 @@ import Alert from "@material-ui/lab/Alert";
 
 const genders = ["Male", "Female", "Another"];
 
-const SignupForm = ({ onSignUp }) => {
+export const SignupForm = ({ onSignUp }) => {
   const initialState = {
     user: {
       username: "",
@@ -64,11 +64,11 @@ const SignupForm = ({ onSignUp }) => {
       </Typography>
       <form>
         {formState.error ? (
-          <Box my="1rem">
+          <Box my="15px">
             <Alert severity="error">{formState.error}</Alert>
           </Box>
         ) : null}
-        <Box mb="1rem">
+        <Box mb="15px">
           <TextField
             name="username"
             required
@@ -79,7 +79,7 @@ const SignupForm = ({ onSignUp }) => {
             onChange={handleChange}
           />
         </Box>
-        <Box mb="1rem">
+        <Box mb="15px">
           <TextField
             name="email"
             required
@@ -90,7 +90,7 @@ const SignupForm = ({ onSignUp }) => {
             onChange={handleChange}
           />
         </Box>
-        <Box mb="1rem">
+        <Box mb="15px">
           <TextField
             name="password"
             required
@@ -102,7 +102,7 @@ const SignupForm = ({ onSignUp }) => {
             onChange={handleChange}
           />
         </Box>
-        <Box mb="1rem">
+        <Box mb="15px">
           <TextField
             name="bio"
             required
@@ -115,7 +115,7 @@ const SignupForm = ({ onSignUp }) => {
             onChange={handleChange}
           />
         </Box>
-        <Box display="flex" justifyContent="space-between" mb="1rem">
+        <Box display="flex" justifyContent="space-between" mb="15px">
           <TextField
             name="name"
             required
@@ -151,12 +151,10 @@ const SignupForm = ({ onSignUp }) => {
         >
           Sign in
         </Button>
-        <Box display="flex" justifyContent="center" mt="1rem">
+        <Box display="flex" justifyContent="center" mt="15px">
           <Link to="/login">Войти</Link>
         </Box>
       </form>
     </Container>
   );
 };
-
-export default SignupForm;

@@ -8,15 +8,18 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#DCDADA",
   },
   avatar: {
-    marginRight: ".5rem",
+    marginRight: "10px",
   },
   box: {
-    marginBottom: ".5rem",
+    marginBottom: "10px",
   },
   root: {
     "& .MuiPaper-root": {
       backgroundColor: "#DCDADA",
-      padding: ".5rem",
+      padding: "15px",
+      "& a": {
+        textDecoration: "none",
+      },
     },
   },
 }));
@@ -27,7 +30,7 @@ const MenuItem = withStyles({
   },
 })(MuiMenuItem);
 
-const HeaderMenu = ({
+export const HeaderMenu = ({
   open,
   handleClose,
   anchorEl,
@@ -66,5 +69,3 @@ const HeaderMenu = ({
     </div>
   );
 };
-
-export default HeaderMenu;

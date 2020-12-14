@@ -1,10 +1,10 @@
 import React from "react";
-import SignupForm from "../containers/SignupContainer";
+import { SignupFormContainer } from "../containers/SignupContainer";
 
 export const SignupPage = () => {
   return (
     <div className="signup-page content-center">
-      <SignupForm />
+      <SignupFormContainer />
     </div>
   );
 };

@@ -1,6 +1,10 @@
 import APIController from "./ApiController";
 
+<<<<<<< HEAD
 class AccountsController extends APIController {
+=======
+class АccountController extends APIController {
+>>>>>>> Фиксим проблемы, которые нашел саша
   constructor() {
     super();
   }
@@ -62,4 +66,8 @@ class AccountsController extends APIController {
   }
 }
 
+<<<<<<< HEAD
 export default new AccountsController();
+=======
+export default new АccountController();
+>>>>>>> Фиксим проблемы, которые нашел саша
