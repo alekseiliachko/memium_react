@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, Box, Typography, IconButton } from "@material-ui/core";
-import EditIcon from "@material-ui/icons/Edit";
+import { ProfileHeaderDetails } from "../ProfileHeaderDetails";
+import { ProfileHeaderDetailsEdit } from "../ProfileHeaderDetailsEdit";
+import { Avatar, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { LOADING_STATUS } from "../../redux/user/reducer";
-import { loadAvatar } from "../../redux/user/actions";
 
 const useStyles = makeStyles(() => ({
   avatar: {
@@ -18,18 +18,26 @@ const useStyles = makeStyles(() => ({
 export const ProfileHeader = ({
   details,
   avatar,
+  subs,
   loadDetails,
   detailsLoadingStatus,
   avatarLoadingStatus,
   loadAvatar,
+  loadSubs,
+  subsLoadingStatus,
+  updateDetails,
 }) => {
   const classes = useStyles();
+  const [editMode, setEditMode] = useState(false);
   useEffect(() => {
     if (avatarLoadingStatus === LOADING_STATUS.NOT_LOADED) {
       loadAvatar();
     }
     if (detailsLoadingStatus === LOADING_STATUS.NOT_LOADED) {
       loadDetails();
+    }
+    if (subsLoadingStatus === LOADING_STATUS.NOT_LOADED) {
+      loadSubs();
     }
   }, []);
   return (
@@ -40,18 +48,19 @@ export const ProfileHeader = ({
         justifyContent="space-between"
         alignItems="center"
       >
-        <Box width="50%" className="profile-header__details">
-          <Box display="flex">
-            <Typography variant="h4">{details.name}</Typography>
-            <IconButton aria-label="bookmark">
-              <EditIcon />
-            </IconButton>
-          </Box>
-          <Typography variant="subtitle1" className="details__about">
-            {details.bio}
-          </Typography>
-          <Typography className={classes.subs}>26 подписок</Typography>
-        </Box>
+        {editMode ? (
+          <ProfileHeaderDetails
+            setEditMode={() => setEditMode(!editMode)}
+            details={details}
+            subs={subs}
+          />
+        ) : (
+          <ProfileHeaderDetailsEdit
+            setEditMode={() => setEditMode(!editMode)}
+            onSaveDetails={updateDetails}
+            details={details}
+          />
+        )}
         <div className="profile-header__avatar">
           <Avatar src={avatar} className={classes.avatar}></Avatar>
         </div>

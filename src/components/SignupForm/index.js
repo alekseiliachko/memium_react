@@ -35,7 +35,7 @@ export const SignupForm = ({ onSignUp }) => {
       loading: true,
     }));
     e.preventDefault();
-    onSignUp(formState.user)
+    onSignUp({ ...formState.user, dob: new Date().toISOString() })
       .then((res) => {
         history.push("/login");
       })
