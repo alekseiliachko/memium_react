@@ -10,6 +10,15 @@ class АccountController extends APIController {
     return avatar;
   }
 
+  async updateAvatar(avatar) {
+    const updateStatus = await this.request("post", `/account/avatar`, avatar, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return updateStatus;
+  }
+
   async getUserDetails() {
     const avatar = await this.request("get", "/account/details");
     return avatar;
@@ -54,11 +63,6 @@ class АccountController extends APIController {
 
   async updateUserData(userData) {
     const updateStatus = await this.request("put", `/account/self/`, userData);
-    return updateStatus;
-  }
-
-  async updateAvatar(avatar) {
-    const updateStatus = await this.request("put", `/account/image/`, avatar);
     return updateStatus;
   }
 }

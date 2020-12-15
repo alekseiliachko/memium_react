@@ -10,7 +10,11 @@ export const ProfileHeaderDetailsEdit = ({
   details,
   onSaveDetails,
 }) => {
-  const [formDetails, setFormDetails] = useState({ ...details });
+  const [formDetails, setFormDetails] = useState({
+    name: "",
+    bio: "",
+    gender: "",
+  });
   const handleChange = (e) => {
     setFormDetails((prevState) => ({
       ...prevState,
@@ -19,12 +23,12 @@ export const ProfileHeaderDetailsEdit = ({
   };
 
   useEffect(() => {
-    setFormDetails({ ...details });
+    setFormDetails(details);
   }, [details]);
 
   return (
-    <Box width="50%" className="profile-header__details-edit">
-      <Box display="flex" mb={1}>
+    <Box width="400px" className="profile-header__details-edit">
+      <Box display="flex" alignItems="center" mb={1}>
         <TextField
           label="Name"
           name="name"
@@ -43,13 +47,14 @@ export const ProfileHeaderDetailsEdit = ({
           <EditIcon />
         </IconButton>
       </Box>
-      <Box mb={1}>
+      <Box mb={2}>
         <TextField
           name="bio"
           required
           label="Bio"
           rows={4}
           multiline
+          fullWidth
           value={formDetails.bio}
           onChange={handleChange}
         />

@@ -5,6 +5,7 @@ import {
   loadSubs,
   loadAvatar,
   updateDetails,
+  updateAvatar,
 } from "../redux/user/actions";
 
 const mapStateToProps = (store) => ({
@@ -21,6 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
   loadAvatar: () => dispatch(loadAvatar()),
   loadSubs: () => dispatch(loadSubs()),
   updateDetails: (details) => dispatch(updateDetails(details)),
+  updateAvatar: (avatar) => dispatch(updateAvatar(avatar)),
 });
 
 export const ProfileHeaderContainer = connect(
