@@ -8,8 +8,8 @@ export default class APIController {
     this.updateAuthHeader(localStorage.getItem("memium_token"));
   }
 
-  async request(method, url, data = {}) {
-    const response = await this.axios[method](url, data);
+  async request(method, url, data = {}, params = {}) {
+    const response = await this.axios[method](url, data, params);
     return response;
   }
 

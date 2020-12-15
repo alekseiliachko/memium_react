@@ -46,10 +46,22 @@ export const loadAvatar = () => async (dispatch) => {
   dispatch(setLoadedAvatar(res.data));
 };
 
+export const updateAvatar = (avatar) => async (dispatch) => {
+  dispatch(avatarLoadingAttempt());
+  const updatedAvatar = await AccountsController.updateAvatar(avatar);
+  dispatch(setLoadedAvatar(updatedAvatar));
+};
+
 export const loadDetails = () => async (dispatch) => {
   dispatch(detailsLoadingAttempt());
   const details = await AccountsController.getUserDetails();
-  dispatch(setLoadedDetails(details.data));
+  const fetchedDetails = Object.entries(details.data).map(([key, value]) => {
+    if (value == null) {
+      return [key, ""];
+    }
+    return [key, value];
+  });
+  dispatch(setLoadedDetails(Object.fromEntries(fetchedDetails)));
 };
 
 export const loadSubs = () => async (dispatch) => {
