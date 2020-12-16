@@ -6,15 +6,15 @@ class АccountController extends APIController {
   }
 
   async getAvatarImage() {
-    const avatar = await this.request("get", "/account/avatar");
+    const avatar = await this.request("get", "/account/avatar", {
+      responseType: "blob",
+    });
     return avatar;
   }
 
   async updateAvatar(avatar) {
     const updateStatus = await this.request("post", `/account/avatar`, avatar, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+      responseType: "blob",
     });
     return updateStatus;
   }
@@ -22,6 +22,29 @@ class АccountController extends APIController {
   async getUserDetails() {
     const avatar = await this.request("get", "/account/details");
     return avatar;
+  }
+
+  async getBlUsers() {
+    const users = await this.request("get", "/account/bl");
+    return users;
+  }
+
+  async deleteUserFromBl(userID) {
+    const deleteStatus = await this.request("delete", `/account/bl/${userID}`);
+    return deleteStatus;
+  }
+
+  async getLikedPosts() {
+    const posts = await this.request("get", "/account/like");
+    return posts;
+  }
+
+  async deleteLikeFromPost(articleId) {
+    const deleteStatus = await this.request(
+      "delete",
+      `/account/like?articleId=${articleId}`
+    );
+    return deleteStatus;
   }
 
   async getRecommendedUsers() {
@@ -32,19 +55,6 @@ class АccountController extends APIController {
   async getSubscribersList() {
     const users = await this.request("get", "/account/sub");
     return users;
-  }
-
-  async getBlackListUsers() {
-    const users = await this.request("get", "/account/blacklisted/");
-    return users;
-  }
-
-  async updateBlackList(userID) {
-    const updateStatus = await this.request(
-      "post",
-      `/account/${userID}/blacklist/`
-    );
-    return updateStatus;
   }
 
   async updateSubscribersList(userID) {
@@ -59,11 +69,6 @@ class АccountController extends APIController {
       details
     );
     return updatedDetails;
-  }
-
-  async updateUserData(userData) {
-    const updateStatus = await this.request("put", `/account/self/`, userData);
-    return updateStatus;
   }
 }
 
