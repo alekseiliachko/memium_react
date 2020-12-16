@@ -56,7 +56,10 @@ export const LikedCard = ({ data, onDelete }) => {
             {new Date(data.date).toDateString()}
           </Typography>
         </Box>
-        <IconButton className={classes.IconButton}>
+        <IconButton
+          className={classes.IconButton}
+          onClick={() => onDelete(data.id)}
+        >
           <FavoriteIcon />
         </IconButton>
       </Box>

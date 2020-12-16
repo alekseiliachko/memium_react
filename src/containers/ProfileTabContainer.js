@@ -1,6 +1,11 @@
 import { connect } from "react-redux";
 import { ProfileTab } from "../components/ProfileTab";
-import { loadBl, deleteFromBl, loadLikedList } from "../redux/user/actions";
+import {
+  loadBl,
+  deleteFromBl,
+  loadLikedList,
+  deleteFromLiked,
+} from "../redux/user/actions";
 
 const mapStateToProps = (store) => ({
   blackList: store.userReducer.blackList,
@@ -11,6 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
   loadBl: () => dispatch(loadBl()),
   deleteFromBl: (userId) => dispatch(deleteFromBl(userId)),
   loadLiked: () => dispatch(loadLikedList()),
+  deleteFromLiked: (articleId) => dispatch(deleteFromLiked(articleId)),
 });
 
 export const ProfileTabContainer = connect(
