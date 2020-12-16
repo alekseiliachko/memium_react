@@ -4,7 +4,6 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { BlackListCard } from "../BlackListCard";
 import { LikedCard } from "../LikedCard";
-import { loadLikedList } from "../../redux/user/actions";
 const AntTabs = withStyles({
   root: {
     borderBottom: "1px solid #e8e8e8",
@@ -35,6 +34,7 @@ export const ProfileTab = ({
   likedList,
   blackList,
   deleteFromBl,
+  deleteFromLiked,
 }) => {
   const [tab, setTab] = React.useState(0);
 
@@ -61,7 +61,9 @@ export const ProfileTab = ({
               onDelete={deleteFromBl}
             />
           ))
-        : likedList.map((el) => <LikedCard data={el} key={el.id} />)}
+        : likedList.map((el) => (
+            <LikedCard data={el} key={el.id} onDelete={deleteFromLiked} />
+          ))}
     </div>
   );
 };

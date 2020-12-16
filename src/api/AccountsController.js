@@ -42,7 +42,7 @@ class АccountController extends APIController {
   async deleteLikeFromPost(articleId) {
     const deleteStatus = await this.request(
       "delete",
-      `/account/like?articleId=${articleId}`
+      `/account/like/${articleId}`
     );
     return deleteStatus;
   }

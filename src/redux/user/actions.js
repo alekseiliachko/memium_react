@@ -117,7 +117,7 @@ export const loadLikedList = () => async (dispatch) => {
   dispatch(setLoadedLikedList(likedList.data));
 };
 
-export const deleteFromLiked = (userId) => async (dispatch) => {
-  const bl = await AccountsController.deleteUserFromBl(userId);
-  dispatch(loadBl());
+export const deleteFromLiked = (articleId) => async (dispatch) => {
+  const unlikeStatus = await AccountsController.deleteLikeFromPost(articleId);
+  dispatch(loadLikedList());
 };
