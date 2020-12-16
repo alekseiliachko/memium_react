@@ -36,25 +36,29 @@ const useStyles = makeStyles({
   },
 });
 
-export const BlackListCard = ({ imageData, name, bio }) => {
+export const BlackListCard = ({ data, onDelete }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root} variant="outlined">
       <Box display="flex" alignItems="center">
         <Box>
-          <Avatar className={classes.avatar} src={imageData} />
+          <Avatar className={classes.avatar} src={data.imageData} />
         </Box>
         <Box maxWidth="70%">
           <CardContent className={classes.content}>
             <Typography className={classes.name} variant="h5" component="h2">
-              {name}
+              {data.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {bio}
+              {data.bio}
             </Typography>
           </CardContent>
           <CardActions className={classes.actions}>
-            <Button className={classes.button} variant="contained">
+            <Button
+              className={classes.button}
+              variant="contained"
+              onClick={() => onDelete(data.accountId)}
+            >
               Unblock
             </Button>
           </CardActions>
