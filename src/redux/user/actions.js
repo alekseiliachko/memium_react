@@ -49,7 +49,7 @@ export const loadAvatar = () => async (dispatch) => {
 export const updateAvatar = (avatar) => async (dispatch) => {
   dispatch(avatarLoadingAttempt());
   const updatedAvatar = await AccountsController.updateAvatar(avatar);
-  dispatch(setLoadedAvatar(updatedAvatar));
+  dispatch(setLoadedAvatar(updatedAvatar.data));
 };
 
 export const loadDetails = () => async (dispatch) => {
