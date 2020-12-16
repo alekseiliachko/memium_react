@@ -64,28 +64,20 @@ export const likedLoadingAttempt = () => ({
 
 export const loadAvatar = () => async (dispatch) => {
   dispatch(avatarLoadingAttempt());
-  const res = await AccountsController.getAvatarImage();
-  const src = URL.createObjectURL(res.data);
+  const src = await AccountsController.getAvatarImage();
   dispatch(setLoadedAvatar(src));
 };
 
 export const updateAvatar = (avatar) => async (dispatch) => {
   dispatch(avatarLoadingAttempt());
-  const updatedAvatar = await AccountsController.updateAvatar(avatar);
-  const src = URL.createObjectURL(updatedAvatar.data);
+  const src = await AccountsController.updateAvatar(avatar);
   dispatch(setLoadedAvatar(src));
 };
 
 export const loadDetails = () => async (dispatch) => {
   dispatch(detailsLoadingAttempt());
   const details = await AccountsController.getUserDetails();
-  const fetchedDetails = Object.entries(details.data).map(([key, value]) => {
-    if (value == null) {
-      return [key, ""];
-    }
-    return [key, value];
-  });
-  dispatch(setLoadedDetails(Object.fromEntries(fetchedDetails)));
+  dispatch(setLoadedDetails(details));
 };
 
 export const loadSubs = () => async (dispatch) => {

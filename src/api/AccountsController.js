@@ -9,19 +9,30 @@ class АccountController extends APIController {
     const avatar = await this.request("get", "/account/avatar", {
       responseType: "blob",
     });
-    return avatar;
+    return URL.createObjectURL(avatar.data);
   }
 
   async updateAvatar(avatar) {
-    const updateStatus = await this.request("post", `/account/avatar`, avatar, {
-      responseType: "blob",
-    });
-    return updateStatus;
+    const updatedAvatar = await this.request(
+      "post",
+      `/account/avatar`,
+      avatar,
+      {
+        responseType: "blob",
+      }
+    );
+    return URL.createObjectURL(updatedAvatar.data);
   }
 
   async getUserDetails() {
-    const avatar = await this.request("get", "/account/details");
-    return avatar;
+    const details = await this.request("get", "/account/details");
+    const fetchedDetails = Object.entries(details.data).map(([key, value]) => {
+      if (value == null) {
+        return [key, ""];
+      }
+      return [key, value];
+    });
+    return Object.fromEntries(fetchedDetails);
   }
 
   async getBlUsers() {
