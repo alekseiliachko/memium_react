@@ -36,7 +36,7 @@ export const LikedCard = ({ data, onDelete }) => {
       setAuthorName(res.data.name)
     );
     AccountsOpenController.getAccountsAvatar(data.authorId).then((res) => {
-      setAuthorImg(URL.createObjectURL(res.data));
+      setAuthorImg(res);
     });
   }, []);
   return (

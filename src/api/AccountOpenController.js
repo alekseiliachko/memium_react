@@ -21,7 +21,7 @@ class АccountOpenController extends APIController {
         responseType: "blob",
       }
     );
-    return avatar;
+    return URL.createObjectURL(avatar.data);
   }
 }
 

@@ -55,13 +55,6 @@ export const AppHeader = ({
     setAnchorEl(null);
   };
 
-  useEffect(async () => {
-    const res = await ArticlesController.myArticles();
-    for (const article of res.data) {
-      ArticlesController.getArticleById(article.id);
-    }
-  }, []);
-
   useEffect(() => {
     if (avatarLoadingStatus == LOADING_STATUS.NOT_LOADED) {
       loadAvatar();
