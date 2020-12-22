@@ -28,7 +28,7 @@ export const ProfileHeaderDetailsEdit = ({
 
   return (
     <Box width="400px" className="profile-header__details-edit">
-      <Box display="flex" alignItems="center" mb={1}>
+      <Box display="flex" alignItems="center" mb={2}>
         <TextField
           label="Name"
           name="name"
@@ -55,6 +55,7 @@ export const ProfileHeaderDetailsEdit = ({
           rows={4}
           multiline
           fullWidth
+          variant="outlined"
           value={formDetails.bio}
           onChange={handleChange}
         />

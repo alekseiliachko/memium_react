@@ -68,14 +68,29 @@ class АccountController extends APIController {
     return deleteStatus;
   }
 
-  async getRecommendedUsers() {
-    const users = await this.request("get", "/account/home/");
-    return users;
+  async likePost(articleId) {
+    const likeStatus = await this.request("post", `/account/like/${articleId}`);
+    return likeStatus;
+  }
+
+  async getFeed() {
+    const feed = await this.request("get", "/feed/");
+    return feed;
   }
 
   async getSubscribersList() {
     const users = await this.request("get", "/account/sub");
     return users;
+  }
+
+  async addToSubs(accountId) {
+    const status = await this.request("post", `/account/sub/${accountId}`);
+    return status;
+  }
+
+  async removeFromSubs(accountId) {
+    const status = await this.request("delete", `/account/sub/${accountId}`);
+    return status;
   }
 
   async updateSubscribersList(userID) {

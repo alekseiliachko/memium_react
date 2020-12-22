@@ -10,6 +10,8 @@ import {
   BL_LOADED,
   LIKED_LOADED,
   ATTEMPT_LOAD_LIKED,
+  ATTEMPT_LOAD_FEED,
+  FEED_LOADED,
 } from "./actions";
 
 export const LOADING_STATUS = {
@@ -33,6 +35,8 @@ const initialState = {
   subsLoadingStatus: LOADING_STATUS.NOT_LOADED,
   blackListLoadingStatus: LOADING_STATUS.NOT_LOADED,
   likedListLoadingStatus: LOADING_STATUS.NOT_LOADED,
+  feedLoadingStatus: LOADING_STATUS.NOT_LOADED,
+  feed: {},
 };
 
 export const userReducer = (store = initialState, action) => {
@@ -96,6 +100,17 @@ export const userReducer = (store = initialState, action) => {
       return {
         ...store,
         likedListLoadingStatus: LOADING_STATUS.LOADING,
+      };
+    case FEED_LOADED:
+      return {
+        ...store,
+        feed: action.payload,
+        feedLoadingStatus: LOADING_STATUS.LOADED,
+      };
+    case ATTEMPT_LOAD_FEED:
+      return {
+        ...store,
+        feedLoadingStatus: LOADING_STATUS.LOADING,
       };
     default:
       return store;
