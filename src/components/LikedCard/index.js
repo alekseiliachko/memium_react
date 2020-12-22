@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Card, Box, Avatar, Typography, IconButton } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import Logo from "../../assets/govno.jpg";
 import AccountsOpenController from "../../api/AccountOpenController";
 
 const useStyles = makeStyles({

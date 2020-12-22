@@ -10,8 +10,13 @@ export const ATTEMPT_LOAD_BL = "ATTEMPT_LOAD_BL";
 export const BL_LOADED = "BL_LOADED";
 export const ATTEMPT_LOAD_LIKED = "ATTEMPT_LOAD_LIKED";
 export const LIKED_LOADED = "LIKED_LOADED";
-
 export const ATTEMPT_UPDATE_DETAILS = "ATTEMPT_UPDATE_DETAILS";
+
+export const FEED_LOADED = "FEED_LOADED";
+export const ATTEMPT_LOAD_FEED = "ATTEMPT_LOAD_FEED";
+
+export const PUSH_TO_LIKED = "PUSH_TO_LIKED";
+export const ATTEMPT_LIKE_POST = "ATTEMPT_LIKE_POST";
 
 export const setLoadedAvatar = (src) => ({
   payload: src,
@@ -33,9 +38,19 @@ export const setLoadedBl = (bl) => ({
   payload: bl,
 });
 
+export const setLoadedFeed = (feed) => ({
+  type: FEED_LOADED,
+  payload: feed,
+});
+
 export const setLoadedLikedList = (likedPosts) => ({
   type: LIKED_LOADED,
   payload: likedPosts,
+});
+
+export const pushToLiked = (likedPost) => ({
+  type: PUSH_TO_LIKED,
+  payload: likedPost,
 });
 
 export const avatarLoadingAttempt = () => ({
@@ -60,6 +75,10 @@ export const blLoadingAttempt = () => ({
 
 export const likedLoadingAttempt = () => ({
   type: ATTEMPT_LOAD_LIKED,
+});
+
+export const feedLoadingAttempt = () => ({
+  type: ATTEMPT_LOAD_FEED,
 });
 
 export const loadAvatar = () => async (dispatch) => {
@@ -112,4 +131,25 @@ export const loadLikedList = () => async (dispatch) => {
 export const deleteFromLiked = (articleId) => async (dispatch) => {
   const unlikeStatus = await AccountsController.deleteLikeFromPost(articleId);
   dispatch(loadLikedList());
+};
+
+export const loadFeed = () => async (dispatch) => {
+  dispatch(feedLoadingAttempt());
+  const feed = await AccountsController.getFeed();
+  dispatch(setLoadedFeed(feed.data));
+};
+
+export const likePost = (articleId) => async (dispatch) => {
+  const likeStatus = await AccountsController.likePost(articleId);
+  dispatch(loadLikedList());
+};
+
+export const addToSubs = (accountId) => async (dispatch) => {
+  const subsStatus = await AccountsController.addToSubs(accountId);
+  dispatch(loadSubs());
+};
+
+export const deleteFromSubs = (accountId) => async (dispatch) => {
+  const subsStatus = await AccountsController.removeFromSubs(accountId);
+  dispatch(loadSubs());
 };
