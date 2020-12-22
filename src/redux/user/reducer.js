@@ -11,7 +11,6 @@ import {
   LIKED_LOADED,
   ATTEMPT_LOAD_LIKED,
 } from "./actions";
-import { LOADING_STATUS } from "../common";
 
 export const LOADING_STATUS = {
   NOT_LOADED: "NOT_LOADED",
@@ -33,7 +32,7 @@ const initialState = {
   detailsLoadingStatus: LOADING_STATUS.NOT_LOADED,
   subsLoadingStatus: LOADING_STATUS.NOT_LOADED,
   blackListLoadingStatus: LOADING_STATUS.NOT_LOADED,
-  likedLoadingStatus: LOADING_STATUS.NOT_LOADED,
+  likedListLoadingStatus: LOADING_STATUS.NOT_LOADED,
 };
 
 export const userReducer = (store = initialState, action) => {

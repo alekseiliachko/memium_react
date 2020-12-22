@@ -40,6 +40,11 @@ class АccountController extends APIController {
     return users;
   }
 
+  async blUser(userId) {
+    const blStatus = await this.request("post", `/account/bl/${userId}`);
+    return blStatus;
+  }
+
   async deleteUserFromBl(userID) {
     const deleteStatus = await this.request("delete", `/account/bl/${userID}`);
     return deleteStatus;
@@ -48,6 +53,11 @@ class АccountController extends APIController {
   async getLikedPosts() {
     const posts = await this.request("get", "/account/like");
     return posts;
+  }
+
+  async likePost(articleId) {
+    const like = await this.request("post", `/account/like/${articleId}`);
+    return like;
   }
 
   async deleteLikeFromPost(articleId) {
