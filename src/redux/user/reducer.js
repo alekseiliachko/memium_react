@@ -11,6 +11,7 @@ import {
   LIKED_LOADED,
   ATTEMPT_LOAD_LIKED,
 } from "./actions";
+import { LOADING_STATUS } from "../common";
 
 export const LOADING_STATUS = {
   NOT_LOADED: "NOT_LOADED",

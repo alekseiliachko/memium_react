@@ -1,64 +1,36 @@
-import APIController, { BASE_URL } from "./ApiController";
+import APIController from "./ApiController";
 
 class AccountsController extends APIController {
   constructor() {
     super();
   }
 
-  async getRecommendedArticles() {
-    const articles = await this.request("get", "/articles/home/");
-    return articles;
+  async createArticle(articleData) {
+    return await this.request("post", "article/", articleData);
   }
 
-  async getLikedArticles() {
-    const likedArticles = await this.request("get", "/articles/liked/");
-    return likedArticles;
+  async updateArticle(newArticleData) {
+    return await this.request("put", "article/", newArticleData);
   }
 
-  async getArticle(articleID) {
-    const article = await this.request(
-      "get",
-      `/articles/${articleID}/article/`
-    );
-    return article;
+  async articleHasLike(articleId) {
+    return await this.request("get", `article/haslike/${articleId}`);
   }
 
-  async getArticleLikes(articleID) {
-    const likes = await this.request("get", `/articles/${articleID}/likes/`);
-    return likes;
+  async setImageForArticle(articleId, image) {
+    return await this.request("post", `article/image/${articleId}`, image);
   }
 
-  async getArticleComment(articleID) {
-    const comments = await this.request(
-      "get",
-      `/articles/${articleID}/comments/`
-    );
-    return comments;
+  async myArticles() {
+    return await this.request("get", "article/my");
   }
 
-  async createComment(articleID, comment) {
-    const commentStatus = await this.request(
-      "post",
-      `/articles/${articleID}/comments/`,
-      comment
-    );
-    return commentStatus;
+  async deleteArticle(articleId) {
+    return await this.request("delete", `article/my/${articleId}`);
   }
 
-  async likeArticle(articleID) {
-    const likeStatus = await this.request(
-      "post",
-      `/articles/${articleID}/like/`
-    );
-    return likeStatus;
-  }
-
-  async deleteArticle(articleID) {
-    const deleteStatus = await this.request(
-      "delete",
-      `/articles/${articleID}/delete/`
-    );
-    return deleteStatus;
+  async getArticleById(articleId) {
+    return await this.request("get", `/open/article/articleId/${articleId}`);
   }
 }
 
