@@ -13,7 +13,8 @@ import {
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import BookmarkIcon from "@material-ui/icons/BookmarkBorder";
-import { LOADING_STATUS } from "../../redux/user/reducer";
+import ArticlesController from "../../api/ArticlesController";
+import { LOADING_STATUS } from "../../redux/common";
 
 const useStyles = makeStyles(() => ({
   menuButton: {
@@ -53,6 +54,13 @@ export const AppHeader = ({
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  useEffect(async () => {
+    const res = await ArticlesController.myArticles();
+    for (const article of res.data) {
+      ArticlesController.getArticleById(article.id);
+    }
+  }, []);
 
   useEffect(() => {
     if (avatarLoadingStatus == LOADING_STATUS.NOT_LOADED) {

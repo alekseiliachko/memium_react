@@ -8,6 +8,7 @@ import { restoreSessionAttempt } from "../redux/auth/actions";
 import { PrivateRouteContainer } from "../containers/PrivateRouteContainer";
 import { HomePage } from "../pages/HomePage";
 import { ProfilePage } from "../pages/ProfilePage";
+import { ArticleViewPage } from "../pages/ArticleViewPage";
 
 const store = configureStore();
 
@@ -22,6 +23,9 @@ const App = () => {
         <Switch>
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
+          <PrivateRouteContainer path="/article/:articleId">
+            <ArticleViewPage />
+          </PrivateRouteContainer>
           <PrivateRouteContainer path="/home">
             <HomePage />
           </PrivateRouteContainer>
