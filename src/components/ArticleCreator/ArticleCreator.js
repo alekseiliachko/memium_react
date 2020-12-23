@@ -49,6 +49,11 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
   },
+  buttonsWrap: {
+    display: "flex",
+    marginTop: "20px",
+    justifyContent: "space-between",
+  },
 }));
 
 export const ArticleCreator = () => {
@@ -79,6 +84,10 @@ export const ArticleCreator = () => {
   const handleCancelPicture = useCallback(() => {
     setImage("");
     setFormData(null);
+  }, []);
+
+  const handleCancelEdit = useCallback(() => {
+    history.push("/home");
   }, []);
 
   const uploadButtonHandler = async () => {
@@ -156,15 +165,22 @@ export const ArticleCreator = () => {
         }}
         onChange={setText}
       />
-      <label htmlFor="contained-button-file">
+      <label className={classes.buttonsWrap} htmlFor="contained-button-file">
         <Button
-          style={{ marginTop: "20px" }}
           onClick={uploadButtonHandler}
           variant="contained"
           color="primary"
           component="span"
         >
           Создать статью
+        </Button>
+        <Button
+          onClick={handleCancelEdit}
+          variant="contained"
+          color="secondary"
+          component="span"
+        >
+          Отмена
         </Button>
       </label>
     </Container>
