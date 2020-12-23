@@ -62,7 +62,7 @@ export const Feed = ({
         flexWrap="wrap"
         justifyContent="center"
       >
-        {tab == 0 ? (
+        {feed.accounts ? (
           <Box width="50%" display="flex" flexDirection="column">
             {feedLoadingStatus === LOADING_STATUS.LOADED
               ? feed.accounts.map((acc) => (

@@ -10,7 +10,7 @@ import AccountsOpenController from "../../api/AccountOpenController";
 const useStyles = makeStyles({
   root: {
     width: 600,
-    marginBottom: "10px",
+    marginBottom: "20px",
     boxShadow: "none",
     "&:hover": {
       cursor: "pointer",
@@ -44,7 +44,7 @@ export const ArticleCard = ({ data, liked, onLike, onUnLike }) => {
     if (!liked) {
       onLike(data.id);
     } else {
-      onUnLike(data.id)
+      onUnLike(data.id);
     }
   };
   return (
@@ -53,7 +53,13 @@ export const ArticleCard = ({ data, liked, onLike, onUnLike }) => {
       onClick={() => history.push(`/article?id=${data.id}`)}
     >
       <Box display="flex" justifyContent="space-between">
-        <Box display="flex" flexDirection="column" px={2} height={200} flexGrow={1}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          px={2}
+          height={200}
+          flexGrow={1}
+        >
           <Typography variant="h4">{data.title}</Typography>
           <Box flexGrow={1}>
             <Typography
