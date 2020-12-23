@@ -6,6 +6,8 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import AccountsOpenController from "../../api/AccountOpenController";
+import { fetchArticleData } from "../../redux/article/actions";
+import ArticlesController from "../../api/ArticlesController";
 
 const useStyles = makeStyles({
   root: {
@@ -33,6 +35,13 @@ export const ArticleCard = ({ data, liked, onLike, onUnLike }) => {
   const history = useHistory();
   const classes = useStyles();
   const [authorName, setAuthorName] = useState("");
+  const [image, setImage] = useState("");
+
+  useEffect(async () => {
+    const temp = await ArticlesController.getArticleImage(data.id);
+    setImage(temp);
+  }, [data.id]);
+
   useEffect(() => {
     AccountsOpenController.getAccountsDetails(data.authorId).then((res) =>
       setAuthorName(res.data.name)
@@ -92,7 +101,7 @@ export const ArticleCard = ({ data, liked, onLike, onUnLike }) => {
         <Box height="100%">
           <Avatar
             variant="square"
-            src={data.imageData}
+            src={image}
             className={classes.articleImage}
           />
         </Box>

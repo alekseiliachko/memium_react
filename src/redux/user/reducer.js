@@ -26,6 +26,7 @@ export const CATEGORY = [
   "Biology",
   "Chemistry",
   "IT",
+  "Anime",
   "Other",
 ];
 
