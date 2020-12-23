@@ -26,9 +26,33 @@ export const CATEGORY = [
   "Biology",
   "Chemistry",
   "IT",
-  "Anime",
   "Other",
 ];
+
+export const ARTICLE_CATEGORIES = [
+  "Astro",
+  "Biology",
+  "Chemistry",
+  "IT",
+  "Other",
+];
+
+export const mapCategoryToText = (category) => {
+  switch (category) {
+    case "Default":
+      return "Новости";
+    case "Astro":
+      return "Астрология";
+    case "Biology":
+      return "Биология";
+    case "Chemistry":
+      return "Химия";
+    case "IT":
+      return "ИТ";
+    case "Other":
+      return "Другое";
+  }
+};
 
 const initialState = {
   avatar: "",

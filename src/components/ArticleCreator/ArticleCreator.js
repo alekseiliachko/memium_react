@@ -1,13 +1,27 @@
 import React, { useCallback, useState } from "react";
-import { Container, Box, Input, IconButton, Button } from "@material-ui/core";
+import {
+  Container,
+  Box,
+  Input,
+  IconButton,
+  Button,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Editor from "react-medium-editor";
 import { PhotoCamera } from "@material-ui/icons";
 import ClearIcon from "@material-ui/icons/Clear";
 import ArticlesController from "../../api/ArticlesController";
 import { useHistory } from "react-router-dom";
+import {
+  ARTICLE_CATEGORIES,
+  mapCategoryToText,
+} from "../../redux/user/reducer";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   articlePage: {
     marginTop: "70px",
   },
@@ -54,6 +68,11 @@ const useStyles = makeStyles(() => ({
     marginTop: "20px",
     justifyContent: "space-between",
   },
+  formControl: {
+    margin: theme.spacing(1),
+    marginLeft: "-1px",
+    minWidth: 120,
+  },
 }));
 
 export const ArticleCreator = () => {
@@ -63,6 +82,7 @@ export const ArticleCreator = () => {
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
   const [formData, setFormData] = useState(null);
+  const [category, setCategory] = useState(ARTICLE_CATEGORIES[0]);
   const classes = useStyles();
 
   const handlePictureUpload = useCallback((e) => {
@@ -92,7 +112,7 @@ export const ArticleCreator = () => {
 
   const uploadButtonHandler = async () => {
     const article = await ArticlesController.createArticle({
-      category: "Anime",
+      category,
       title,
       description: desc,
       data: text,
@@ -109,17 +129,38 @@ export const ArticleCreator = () => {
 
   return (
     <Container maxWidth="sm" className={classes.articlePage}>
-      <Input
-        value={title}
-        onInput={(e) => setTitle(e.target.value)}
-        inputProps={{ "aria-label": "description" }}
-      />
-      <br />
-      <Input
-        value={desc}
-        onInput={(e) => setDesc(e.target.value)}
-        inputProps={{ "aria-label": "description" }}
-      />
+      <div>
+        <div>
+          <Input
+            value={title}
+            onInput={(e) => setTitle(e.target.value)}
+            inputProps={{ "aria-label": "description" }}
+          />
+          <br />
+          <Input
+            value={desc}
+            onInput={(e) => setDesc(e.target.value)}
+            inputProps={{ "aria-label": "description" }}
+          />
+        </div>
+        <FormControl className={classes.formControl}>
+          <InputLabel id="category-label">Категория</InputLabel>
+          <Select
+            labelId="category-label"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            {ARTICLE_CATEGORIES.map((val) => {
+              return (
+                <MenuItem key={val} value={val}>
+                  {" "}
+                  {mapCategoryToText(val)}{" "}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+      </div>
       <Box className={classes.imageContainer}>
         {image ? (
           <>
