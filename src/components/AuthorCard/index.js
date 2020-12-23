@@ -8,7 +8,7 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 400,
+    maxWidth: 300,
     marginBottom: "10px",
     boxShadow: "none",
     "&:hover": {

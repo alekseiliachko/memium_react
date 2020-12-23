@@ -7,7 +7,8 @@ import {
   deleteFromLiked,
   addToSubs,
   deleteFromSubs,
-  loadSubs
+  loadSubs,
+  loadCategory,
 } from "../redux/user/actions";
 
 const mapStateToProps = (store) => ({
@@ -27,7 +28,7 @@ const mapDispatchToProps = (dispatch) => ({
   addToSubs: (accId) => dispatch(addToSubs(accId)),
   deleteFromSubs: (accId) => dispatch(deleteFromSubs(accId)),
   loadSubs: () => dispatch(loadSubs()),
-
+  loadCategory: (category) => dispatch(loadCategory(category)),
 });
 
 export const FeedContainer = connect(mapStateToProps, mapDispatchToProps)(Feed);

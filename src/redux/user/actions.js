@@ -1,3 +1,4 @@
+import { Category } from "@material-ui/icons";
 import AccountsController from "../../api/AccountsController";
 
 export const AVATAR_LOADED = "AVATAR_LOADED";
@@ -133,7 +134,7 @@ export const deleteFromLiked = (articleId) => async (dispatch) => {
   dispatch(loadLikedList());
 };
 
-export const loadFeed = () => async (dispatch) => {
+export const loadFeed = (categoryIndex) => async (dispatch) => {
   dispatch(feedLoadingAttempt());
   const feed = await AccountsController.getFeed();
   dispatch(setLoadedFeed(feed.data));
@@ -152,4 +153,10 @@ export const addToSubs = (accountId) => async (dispatch) => {
 export const deleteFromSubs = (accountId) => async (dispatch) => {
   const subsStatus = await AccountsController.removeFromSubs(accountId);
   dispatch(loadSubs());
+};
+
+export const loadCategory = (category) => async (dispatch) => {
+  dispatch(feedLoadingAttempt());
+  const categoryFeed = await AccountsController.getFeedForCategory(category);
+  dispatch(setLoadedFeed(categoryFeed.data));
 };
