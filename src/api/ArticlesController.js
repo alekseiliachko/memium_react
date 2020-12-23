@@ -6,7 +6,9 @@ class AccountsController extends APIController {
   }
 
   async createArticle(articleData) {
-    return await this.request("post", "article/", articleData);
+    return await this.request("post", "article/", articleData).then(
+      (val) => val.data
+    );
   }
 
   async updateArticle(newArticleData) {
@@ -18,7 +20,9 @@ class AccountsController extends APIController {
   }
 
   async setImageForArticle(articleId, image) {
-    return await this.request("post", `article/image/${articleId}`, image);
+    return await this.request("post", `article/image/${articleId}`, image).then(
+      (val) => val.data
+    );
   }
 
   async myArticles() {
@@ -31,6 +35,20 @@ class AccountsController extends APIController {
 
   async getArticleById(articleId) {
     return await this.request("get", `/open/article/articleId/${articleId}`);
+  }
+
+  async getArticleImage(articleId) {
+    const image = await this.request(
+      "get",
+      `/open/article/image/${articleId}`,
+      {
+        responseType: "blob",
+      }
+    );
+    if (!image.data.size) {
+      return null;
+    }
+    return URL.createObjectURL(image.data);
   }
 }
 
