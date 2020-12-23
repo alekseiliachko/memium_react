@@ -50,7 +50,7 @@ export const ArticleCard = ({ data, liked, onLike, onUnLike }) => {
   return (
     <Card
       className={classes.root}
-      onClick={() => history.push(`/article?id=${data.id}`)}
+      onClick={() => history.push(`/article/${data.id}`)}
     >
       <Box display="flex" justifyContent="space-between">
         <Box
