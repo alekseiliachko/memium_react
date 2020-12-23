@@ -20,6 +20,15 @@ export const LOADING_STATUS = {
   LOADED: "LOADED",
 };
 
+export const CATEGORY = [
+  "Default",
+  "Astro",
+  "Biology",
+  "Chemistry",
+  "IT",
+  "Other",
+];
+
 const initialState = {
   avatar: "",
   blackList: [],
