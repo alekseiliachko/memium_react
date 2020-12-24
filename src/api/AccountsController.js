@@ -83,6 +83,11 @@ class АccountController extends APIController {
     return feed;
   }
 
+  async getArticlesBySearch(string) {
+    const results = await this.request("get", `/search/${string}`);
+    return results;
+  }
+
   async getSubscribersList() {
     const users = await this.request("get", "/account/sub");
     return users;

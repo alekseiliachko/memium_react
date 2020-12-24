@@ -12,6 +12,8 @@ import { ArticleViewPage } from "../pages/ArticleViewPage";
 import { ArticleCreationPage } from "../pages/ArticleCreationPage";
 import { LOADING_STATUS } from "../redux/user/reducer";
 import { loadDetails } from "../redux/user/actions";
+import { Redirect } from "react-router";
+import { SearchPage } from "../pages/SearchPage";
 
 require("medium-editor/dist/css/medium-editor.css");
 require("medium-editor/dist/css/themes/default.css");
@@ -42,6 +44,10 @@ const App = () => {
           <PrivateRouteContainer path="/profile">
             <ProfilePage />
           </PrivateRouteContainer>
+          <PrivateRouteContainer path="/search">
+            <SearchPage />
+          </PrivateRouteContainer>
+          <Route path="*" render={() => <Redirect to="/home" />} />
         </Switch>
       </BrowserRouter>
     </Provider>

@@ -4,12 +4,14 @@ import { authReducer } from "./auth/reducer";
 import { userReducer } from "./user/reducer";
 import { articleReducer } from "./article/reducer";
 import { allUsersReducer } from "./allUsers/reducer";
+import { searchReducer } from "./search/reducer";
 
 const rootState = combineReducers({
   authReducer,
   userReducer,
   articleReducer,
   allUsersReducer,
+  searchReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

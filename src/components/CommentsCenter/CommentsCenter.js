@@ -41,7 +41,13 @@ export const CommentsCenter = ({ articleId }) => {
     getComments();
   }, []);
 
-  const submitComment = async () => {};
+  const submitComment = async () => {
+    if (text.length > 0) {
+      await CommentsController.createComment(articleId, text);
+      setText("");
+      getComments();
+    }
+  };
 
   const deleteComment = async (commentId) => {
     await CommentsController.deleteComment(commentId);
