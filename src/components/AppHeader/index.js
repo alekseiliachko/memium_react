@@ -13,7 +13,6 @@ import {
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import BookmarkIcon from "@material-ui/icons/BookmarkBorder";
-import ArticlesController from "../../api/ArticlesController";
 import { LOADING_STATUS } from "../../redux/common";
 
 const useStyles = makeStyles(() => ({
@@ -79,7 +78,13 @@ export const AppHeader = ({
               <SearchIcon />
             </IconButton>
             {showSearch && (
-              <TextField type="search" placeholder="Поиск" size="small" />
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                <TextField type="search" placeholder="Поиск" size="small" />
+              </form>
             )}
             <IconButton
               className={classes.menuButton}

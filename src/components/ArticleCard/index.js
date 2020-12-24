@@ -6,7 +6,6 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import AccountsOpenController from "../../api/AccountOpenController";
-import { fetchArticleData } from "../../redux/article/actions";
 import ArticlesController from "../../api/ArticlesController";
 
 const useStyles = makeStyles({
