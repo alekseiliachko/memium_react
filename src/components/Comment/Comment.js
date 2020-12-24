@@ -1,27 +1,6 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import {
-  Box,
-  Typography,
-  Avatar,
-  Divider,
-  Toolbar,
-  TextField,
-  Button,
-  IconButton,
-} from "@material-ui/core";
+import React, { useCallback, useMemo } from "react";
+import { Typography, Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUserAvatar, fetchUserData } from "../../redux/allUsers/actions";
-import { ProgressDecorator } from "../ProgressDecorator";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import BlockIcon from "@material-ui/icons/Block";
-import ChatIcon from "@material-ui/icons/Chat";
-import { LOADING_STATUS } from "../../redux/user/reducer";
-import { loadLikedList } from "../../redux/user/actions";
-import AccountsController from "../../api/AccountsController";
-import { useHistory } from "react-router-dom";
-import CommentsController from "../../api/CommentsController";
 import { useLazyUserData } from "../../redux/user/hooks";
 import ClearIcon from "@material-ui/icons/Clear";
 

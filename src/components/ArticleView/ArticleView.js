@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Container,
-  Box,
-  Typography,
-  CircularProgress,
-  Button,
-} from "@material-ui/core";
+import { Box, Typography, CircularProgress, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArticleData } from "../../redux/article/actions";
