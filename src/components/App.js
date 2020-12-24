@@ -10,7 +10,6 @@ import { HomePage } from "../pages/HomePage";
 import { ProfilePage } from "../pages/ProfilePage";
 import { ArticleViewPage } from "../pages/ArticleViewPage";
 import { ArticleCreationPage } from "../pages/ArticleCreationPage";
-import { LOADING_STATUS } from "../redux/user/reducer";
 import { loadDetails } from "../redux/user/actions";
 import { Redirect } from "react-router";
 import { SearchPage } from "../pages/SearchPage";
@@ -24,7 +23,9 @@ const store = configureStore();
 const App = () => {
   useEffect(() => {
     store.dispatch(restoreSessionAttempt());
-    store.dispatch(loadDetails());
+    if (localStorage.memium_token) {
+      store.dispatch(loadDetails());
+    }
   }, []);
 
   return (
