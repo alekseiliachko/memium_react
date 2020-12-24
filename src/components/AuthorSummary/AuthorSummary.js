@@ -12,6 +12,7 @@ import { LOADING_STATUS } from "../../redux/user/reducer";
 import { loadLikedList } from "../../redux/user/actions";
 import AccountsController from "../../api/AccountsController";
 import { useHistory } from "react-router-dom";
+import { useLazyUserData } from "../../redux/user/hooks";
 
 const useStyles = makeStyles(() => ({
   subs: {
@@ -40,20 +41,14 @@ const useStyles = makeStyles(() => ({
 export const AuthorSummary = ({ authorId, articleId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const authorData = useSelector(
-    (state) => state.allUsersReducer.userDataById[authorId]
-  );
+  const authorData = useLazyUserData(authorId);
   const ownId = useSelector((state) => state.userReducer?.details?.accountId);
+
   const { likedList, likeStatus } = useSelector((state) => ({
     likedList: state.userReducer.likedList,
     likeStatus: state.userReducer.likedListLoadingStatus,
   }));
-  useEffect(() => {
-    if (!authorData) {
-      dispatch(fetchUserAvatar(authorId));
-      dispatch(fetchUserData(authorId));
-    }
-  }, [authorId]);
+
   useEffect(() => {
     if (likeStatus === LOADING_STATUS.NOT_LOADED) {
       dispatch(loadLikedList());
