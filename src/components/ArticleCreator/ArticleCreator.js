@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Container,
   Box,
@@ -20,6 +20,9 @@ import {
   ARTICLE_CATEGORIES,
   mapCategoryToText,
 } from "../../redux/user/reducer";
+import { useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { resetArticleData } from "../../redux/article/actions";
 
 const useStyles = makeStyles((theme) => ({
   articlePage: {
@@ -78,54 +81,84 @@ const useStyles = makeStyles((theme) => ({
 
 export const ArticleCreator = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  // режим редактирования
+  const { articleId } = useParams();
   const [title, setTitle] = useState("Заголовок");
   const [desc, setDesc] = useState("Второй заголовок бывает мощнее первого");
-  const [text, setText] = useState("");
+  const [text, setText] = useState("Здесь будет ваш текст");
   const [image, setImage] = useState("");
-  const [formData, setFormData] = useState(null);
   const [category, setCategory] = useState(ARTICLE_CATEGORIES[0]);
+  const ownId = useSelector((state) => state.userReducer?.details?.accountId);
   const classes = useStyles();
 
-  const handlePictureUpload = useCallback((e) => {
-    const selectedFile = e.target.files[0];
-
-    const currFormData = new FormData();
-    currFormData.append("image", e.target.files[0]);
-    setFormData(currFormData);
-
-    const reader = new FileReader();
-
-    reader.onload = function (event) {
-      setImage(event.target.result);
+  useEffect(() => {
+    const getArticle = async (id) => {
+      ArticlesController.getArticleById(id).then(({ data }) => {
+        setTitle(data.title);
+        setDesc(data.description);
+        setCategory(data.category);
+        setText(data.data);
+      });
+      ArticlesController.getArticleImage(id).then((url) => {
+        setImage(url);
+      });
     };
+    if (articleId) {
+      getArticle(articleId);
+    }
+  }, [articleId]);
 
-    reader.readAsDataURL(selectedFile);
+  const handlePictureUpload = useCallback((e) => {
+    setImage(URL.createObjectURL(e.target.files[0]));
   }, []);
 
   const handleCancelPicture = useCallback(() => {
+    URL.revokeObjectURL(image);
     setImage("");
-    setFormData(null);
   }, []);
 
   const handleCancelEdit = useCallback(() => {
-    history.push("/home");
+    if (articleId) {
+      history.push(`article/${articleId}`);
+    } else {
+      history.push("/home");
+    }
   }, []);
 
   const uploadButtonHandler = async () => {
-    const article = await ArticlesController.createArticle({
-      category,
-      title,
-      description: desc,
-      data: text,
-      imageUrl: null,
-    });
-
-    const articleId = article.id;
-    if (image) {
-      await ArticlesController.setImageForArticle(articleId, formData);
+    let _articleId;
+    if (!articleId) {
+      const article = await ArticlesController.createArticle({
+        category,
+        title,
+        description: desc,
+        data: text,
+        imageUrl: null,
+      });
+      _articleId = article.id;
+    } else {
+      await ArticlesController.updateArticle({
+        id: articleId,
+        authorId: ownId,
+        category,
+        title,
+        description: desc,
+        data: text,
+        imageUrl: null,
+      });
+      _articleId = articleId;
+      dispatch(resetArticleData(articleId));
     }
 
-    history.push(`/article/${articleId}`);
+    if (image) {
+      const attemptFormData = new FormData();
+      const blob = await fetch(image).then((res) => res.blob());
+      attemptFormData.append("image", blob);
+      await ArticlesController.setImageForArticle(_articleId, attemptFormData);
+    }
+
+    history.push(`/article/${_articleId}`);
   };
 
   return (
@@ -202,7 +235,7 @@ export const ArticleCreator = () => {
         text={text}
         options={{
           placeholder: {
-            text: "Здесь будут ваши слова",
+            text: "",
           },
         }}
         onChange={setText}
@@ -214,7 +247,7 @@ export const ArticleCreator = () => {
           color="primary"
           component="span"
         >
-          Создать статью
+          {articleId ? "Редактировать статью" : "Создать статью"}
         </Button>
         <Button
           onClick={handleCancelEdit}

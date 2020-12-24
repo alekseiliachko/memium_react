@@ -30,7 +30,7 @@ class AccountsController extends APIController {
   }
 
   async deleteArticle(articleId) {
-    return await this.request("delete", `article/my/${articleId}`);
+    return await this.request("delete", `article/${articleId}`);
   }
 
   async getArticleById(articleId) {
