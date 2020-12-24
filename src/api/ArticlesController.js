@@ -34,7 +34,12 @@ class AccountsController extends APIController {
   }
 
   async getArticleById(articleId) {
-    return await this.request("get", `/open/article/articleId/${articleId}`);
+    return await this.request(
+      "get",
+      `/open/article/articleId/${articleId}`
+    ).catch((err) => {
+      document.location.pathname = "/404";
+    });
   }
 
   async getArticleImage(articleId) {

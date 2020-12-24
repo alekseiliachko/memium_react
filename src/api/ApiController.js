@@ -9,11 +9,7 @@ export default class APIController {
   }
 
   async request(method, url, data = {}, params = {}) {
-    const response = await this.axios[method](url, data, params).catch(
-      (err) => {
-        //window.location.pathname = "/404";
-      }
-    );
+    const response = await this.axios[method](url, data, params);
     return response;
   }
 

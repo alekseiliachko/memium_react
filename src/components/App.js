@@ -14,6 +14,7 @@ import { loadDetails } from "../redux/user/actions";
 import { Redirect } from "react-router";
 import { SearchPage } from "../pages/SearchPage";
 import { MyArticlesPage } from "../pages/MyArticlesPage";
+import { NotFound } from "../pages/404";
 
 require("medium-editor/dist/css/medium-editor.css");
 require("medium-editor/dist/css/themes/default.css");
@@ -55,6 +56,9 @@ const App = () => {
           <PrivateRouteContainer path="/my-articles">
             <MyArticlesPage />
           </PrivateRouteContainer>
+          <Route path="/404">
+            <NotFound />
+          </Route>
           <Route path="*" render={() => <Redirect to="/home" />} />
         </Switch>
       </BrowserRouter>
