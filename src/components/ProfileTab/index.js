@@ -4,6 +4,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { BlackListCard } from "../BlackListCard";
 import { LikedCard } from "../LikedCard";
+import { useLocation } from "react-router";
+import { useHistory } from "react-router-dom";
 const AntTabs = withStyles({
   root: {
     borderBottom: "1px solid #e8e8e8",
@@ -28,6 +30,10 @@ const AntTab = withStyles(() => ({
   },
 }))((props) => <Tab disableRipple {...props} />);
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 export const ProfileTab = ({
   loadBl,
   loadLiked,
@@ -36,15 +42,25 @@ export const ProfileTab = ({
   deleteFromBl,
   deleteFromLiked,
 }) => {
+  const query = useQuery();
+  const history = useHistory();
   const [tab, setTab] = React.useState(0);
 
   useEffect(() => {
     loadBl();
     loadLiked();
+
+    const currentTab = query.get("tab");
+    if (currentTab) {
+      setTab(Number(currentTab));
+    } else {
+      history.replace(history.location.pathname + "?tab=0");
+    }
   }, []);
 
   const handleChange = (event, newValue) => {
     setTab(newValue);
+    history.replace(history.location.pathname + `?tab=${newValue}`);
   };
 
   return (

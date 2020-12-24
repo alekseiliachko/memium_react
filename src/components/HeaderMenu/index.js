@@ -69,7 +69,7 @@ export const HeaderMenu = ({
         <Link to="/new-article">
           <MenuItem>Добавить статью</MenuItem>
         </Link>
-        <Link to="/liked-articles">
+        <Link to="/profile?tab=1">
           <MenuItem>Понравившиеся</MenuItem>
         </Link>
         <Link to="/profile?subs">
