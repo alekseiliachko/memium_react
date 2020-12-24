@@ -36,7 +36,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const BlackListCard = ({ data, onDelete }) => {
+export const UserCard = ({ data, onDelete, btn }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root} variant="outlined">
@@ -59,7 +59,7 @@ export const BlackListCard = ({ data, onDelete }) => {
               variant="contained"
               onClick={() => onDelete(data.accountId)}
             >
-              Unblock
+              {btn}
             </Button>
           </CardActions>
         </Box>

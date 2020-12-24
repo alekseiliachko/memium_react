@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import { BlackListCard } from "../BlackListCard";
+import { BlackListCard, UserCard } from "../UserCard";
 import { LikedCard } from "../LikedCard";
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
@@ -41,6 +41,9 @@ export const ProfileTab = ({
   blackList,
   deleteFromBl,
   deleteFromLiked,
+  loadSubs,
+  subs,
+  deleteFromSubs,
 }) => {
   const query = useQuery();
   const history = useHistory();
@@ -49,7 +52,7 @@ export const ProfileTab = ({
   useEffect(() => {
     loadBl();
     loadLiked();
-
+    loadSubs();
     const currentTab = query.get("tab");
     if (currentTab) {
       setTab(Number(currentTab));
@@ -68,18 +71,30 @@ export const ProfileTab = ({
       <AntTabs value={tab} onChange={handleChange} aria-label="ant example">
         <AntTab label="Черный список" />
         <AntTab label="Понравившиеся" />
+        <AntTab label="Подписки" />
       </AntTabs>
-      {tab === 0
-        ? blackList.map((el) => (
-            <BlackListCard
-              data={el}
-              key={el.accountId}
-              onDelete={deleteFromBl}
-            />
-          ))
-        : likedList.map((el) => (
+      {(tab === 0 &&
+        blackList.map((el) => (
+          <UserCard
+            data={el}
+            key={el.accountId}
+            onDelete={deleteFromBl}
+            btn="Unblock"
+          />
+        ))) ||
+        (tab === 1 &&
+          likedList.map((el) => (
             <LikedCard data={el} key={el.id} onDelete={deleteFromLiked} />
-          ))}
+          ))) ||
+        (tab === 2 &&
+          subs.map((el) => (
+            <UserCard
+              data={el}
+              onDelete={deleteFromSubs}
+              key={el.accountId}
+              btn="Unsub"
+            />
+          )))}
     </div>
   );
 };

@@ -5,11 +5,14 @@ import {
   deleteFromBl,
   loadLikedList,
   deleteFromLiked,
+  loadSubs,
+  deleteFromSubs,
 } from "../redux/user/actions";
 
 const mapStateToProps = (store) => ({
   blackList: store.userReducer.blackList,
   likedList: store.userReducer.likedList,
+  subs: store.userReducer.subs,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,6 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
   deleteFromBl: (userId) => dispatch(deleteFromBl(userId)),
   loadLiked: () => dispatch(loadLikedList()),
   deleteFromLiked: (articleId) => dispatch(deleteFromLiked(articleId)),
+  loadSubs: () => dispatch(loadSubs()),
+  deleteFromSubs: (id) => dispatch(deleteFromSubs(id)),
 });
 
 export const ProfileTabContainer = connect(

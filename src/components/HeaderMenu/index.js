@@ -72,7 +72,7 @@ export const HeaderMenu = ({
         <Link to="/profile?tab=1">
           <MenuItem>Понравившиеся</MenuItem>
         </Link>
-        <Link to="/profile?subs">
+        <Link to="/profile?tab=2">
           <MenuItem>Подписки</MenuItem>
         </Link>
         <Divider></Divider>
