@@ -64,7 +64,7 @@ export const ArticleCard = ({ data, liked, onLike, onUnLike }) => {
         <Box
           display="flex"
           flexDirection="column"
-          px={2}
+          pr={2}
           height={200}
           flexGrow={1}
         >

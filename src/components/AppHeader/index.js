@@ -9,11 +9,11 @@ import {
   Typography,
   IconButton,
   Container,
-  TextField,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import BookmarkIcon from "@material-ui/icons/BookmarkBorder";
 import { LOADING_STATUS } from "../../redux/common";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   menuButton: {
@@ -41,9 +41,9 @@ export const AppHeader = ({
   loadAvatar,
   avatarLoadingStatus,
 }) => {
+  const history = useHistory();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [showSearch, setShowSearch] = useState(false);
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {
@@ -73,19 +73,10 @@ export const AppHeader = ({
               className={classes.menuButton}
               aria-label="search"
               color="inherit"
-              onClick={() => setShowSearch(!showSearch)}
+              onClick={() => history.push("/search")}
             >
               <SearchIcon />
             </IconButton>
-            {showSearch && (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                }}
-              >
-                <TextField type="search" placeholder="Поиск" size="small" />
-              </form>
-            )}
             <IconButton
               className={classes.menuButton}
               aria-label="bookmark"
