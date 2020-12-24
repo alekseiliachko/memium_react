@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Card, Box, Avatar, Typography, IconButton } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import AccountsOpenController from "../../api/AccountOpenController";
+import ArticlesController from "../../api/ArticlesController";
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
     padding: "25px",
     marginBottom: "10px",
+    cursor: "pointer",
   },
   avatar: {
     marginRight: "10px",
@@ -27,8 +30,10 @@ const useStyles = makeStyles({
 
 export const LikedCard = ({ data, onDelete }) => {
   const classes = useStyles();
+  const history = useHistory();
   const [authorName, setAuthorName] = useState("");
   const [authorImg, setAuthorImg] = useState("");
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     AccountsOpenController.getAccountsDetails(data.authorId).then((res) =>
@@ -37,9 +42,16 @@ export const LikedCard = ({ data, onDelete }) => {
     AccountsOpenController.getAccountsAvatar(data.authorId).then((res) => {
       setAuthorImg(res);
     });
+    ArticlesController.getArticleImage(data.id).then((res) => {
+      setImage(res);
+    });
   }, []);
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card
+      className={classes.root}
+      variant="outlined"
+      onClick={() => history.push(`/article/${data.id}`)}
+    >
       <Box display="flex" alignItems="flex-start" mb={2}>
         <Avatar src={authorImg} className={classes.avatar} />
         <Box
@@ -57,14 +69,17 @@ export const LikedCard = ({ data, onDelete }) => {
         </Box>
         <IconButton
           className={classes.IconButton}
-          onClick={() => onDelete(data.id)}
+          onClick={(e) => {
+            e.stopPropagation();
+            onDelete(data.id);
+          }}
         >
           <FavoriteIcon />
         </IconButton>
       </Box>
-      {data.imageUrl && (
+      {image && (
         <Box mb={2}>
-          <img src={data.imageUrl} className={classes.articleImage} />
+          <img src={image} className={classes.articleImage} />
         </Box>
       )}
       <Typography variant="h5">{data.title}</Typography>

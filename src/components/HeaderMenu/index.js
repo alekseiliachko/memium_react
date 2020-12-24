@@ -56,8 +56,12 @@ export const HeaderMenu = ({
           alignItems="center"
           className={classes.box}
         >
-          <Avatar className={classes.avatar} src={avatar}></Avatar>
-          <Typography>{username}</Typography>
+          <Link to="/profile">
+            <Box display="flex" alignItems="center">
+              <Avatar className={classes.avatar} src={avatar}></Avatar>
+              <Typography>{username}</Typography>
+            </Box>
+          </Link>
         </Box>
         <Link to="/my-articles">
           <MenuItem>Мои статьи</MenuItem>
