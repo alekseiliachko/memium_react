@@ -72,11 +72,11 @@ export const HeaderMenu = ({
         <Link to="/liked-articles">
           <MenuItem>Понравившиеся</MenuItem>
         </Link>
-        <Link to="/my-subs">
+        <Link to="/profile?subs">
           <MenuItem>Подписки</MenuItem>
         </Link>
         <Divider></Divider>
-        <Link to="/settings">
+        <Link to="/profile">
           <MenuItem>Настройки</MenuItem>
         </Link>
         <MenuItem onClick={onLogout}>Выход</MenuItem>
