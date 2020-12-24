@@ -78,8 +78,7 @@ export const Feed = ({
           </Box>
         ) : null}
         <Box width="50%" display="flex" flexDirection="column">
-          {feedLoadingStatus === LOADING_STATUS.LOADED &&
-          likedLoadingStatus === LOADING_STATUS.LOADED
+          {feedLoadingStatus === LOADING_STATUS.LOADED
             ? feed.articles.map((article) => (
                 <ArticleCard
                   data={article}
