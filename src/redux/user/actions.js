@@ -1,5 +1,5 @@
-import { Category } from "@material-ui/icons";
 import AccountsController from "../../api/AccountsController";
+import ArticlesController from "../../api/ArticlesController";
 
 export const AVATAR_LOADED = "AVATAR_LOADED";
 export const ATTEMPT_LOAD_AVATAR = "ATTEMPT_LOAD_AVATAR";
@@ -18,6 +18,9 @@ export const ATTEMPT_LOAD_FEED = "ATTEMPT_LOAD_FEED";
 
 export const PUSH_TO_LIKED = "PUSH_TO_LIKED";
 export const ATTEMPT_LIKE_POST = "ATTEMPT_LIKE_POST";
+
+export const ATTEMPT_LOAD_MY_ARTICLES = "ATTEMPT_LOAD_MY_ARTICLES";
+export const MY_ARTICLES_LOADED = "MY_ARTICLES_LOADED";
 
 export const setLoadedAvatar = (src) => ({
   payload: src,
@@ -54,6 +57,11 @@ export const pushToLiked = (likedPost) => ({
   payload: likedPost,
 });
 
+export const setLoadedArticles = (articles) => ({
+  type: MY_ARTICLES_LOADED,
+  payload: articles,
+});
+
 export const avatarLoadingAttempt = () => ({
   type: ATTEMPT_LOAD_AVATAR,
 });
@@ -80,6 +88,10 @@ export const likedLoadingAttempt = () => ({
 
 export const feedLoadingAttempt = () => ({
   type: ATTEMPT_LOAD_FEED,
+});
+
+export const myArticlesLoadingAttempt = () => ({
+  type: ATTEMPT_LOAD_MY_ARTICLES,
 });
 
 export const loadAvatar = () => async (dispatch) => {
@@ -159,4 +171,10 @@ export const loadCategory = (category) => async (dispatch) => {
   dispatch(feedLoadingAttempt());
   const categoryFeed = await AccountsController.getFeedForCategory(category);
   dispatch(setLoadedFeed(categoryFeed.data));
+};
+
+export const loadMyArticles = () => async (dispatch) => {
+  dispatch(myArticlesLoadingAttempt());
+  const myArticles = await ArticlesController.myArticles();
+  setLoadedArticles(myArticles.data);
 };
