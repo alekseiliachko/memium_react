@@ -22,7 +22,7 @@ export const ProfileHeaderDetails = ({ setEditMode, details, subs }) => {
       <Typography variant="subtitle1" className="details__about">
         {details.bio}
       </Typography>
-      <Link to="/my-subs">
+      <Link to="/profile?tab=2">
         <Typography className={classes.subs}>{subs.length} подписок</Typography>
       </Link>
     </Box>
