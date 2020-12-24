@@ -20,11 +20,11 @@ export const MyArticlesPage = () => {
   return (
     <div className="my-article-page">
       <AppHeaderContainer />
-      <Box my={5} px={5}>
-        <Typography variant="h4">Мои статьи</Typography>
-        <Divider></Divider>
-      </Box>
-      <Container maxWidth="sm" className={classes.articleView}>
+      <Container className={classes.articleView}>
+        <Box my={5}>
+          <Typography variant="h4">Мои статьи</Typography>
+          <Divider></Divider>
+        </Box>
         <MyArticlesList />
       </Container>
     </div>

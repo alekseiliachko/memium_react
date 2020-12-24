@@ -88,9 +88,6 @@ export const ArticleCard = ({ data, liked, onLike, onUnLike }) => {
               <IconButton onClick={onLikePost}>
                 {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
               </IconButton>
-              <IconButton>
-                <MoreHorizIcon />
-              </IconButton>
             </div>
           </Box>
           <Typography variant="subtitle2" color="textSecondary">

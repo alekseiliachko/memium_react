@@ -176,5 +176,5 @@ export const loadCategory = (category) => async (dispatch) => {
 export const loadMyArticles = () => async (dispatch) => {
   dispatch(myArticlesLoadingAttempt());
   const myArticles = await ArticlesController.myArticles();
-  setLoadedArticles(myArticles.data);
+  dispatch(setLoadedArticles(myArticles.data));
 };
