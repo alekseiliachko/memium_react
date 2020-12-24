@@ -4,27 +4,25 @@ import {
   Box,
   Typography,
   CircularProgress,
+  Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArticleData } from "../../redux/article/actions";
 import ArticlesController from "../../api/ArticlesController";
+import { mapCategoryToText } from "../../redux/user/reducer";
 
 const getArticleDate = (articleDate) => {
   const data = new Date(articleDate);
-  const mo = new Intl.DateTimeFormat("en", { month: "short" }).format(data);
-  const da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(data);
+  const mo = new Intl.DateTimeFormat("ru", { month: "short" }).format(data);
+  const da = new Intl.DateTimeFormat("ru", { day: "2-digit" }).format(data);
   return `${mo} ${da}`;
 };
 
 const useStyles = makeStyles(() => ({
-  articlePage: {
-    marginTop: "70px",
-  },
   imageContainer: {
     height: "300px",
     width: "100%",
-    background: "green",
     margin: "20px 0px 30px",
   },
   image: {
@@ -36,6 +34,10 @@ const useStyles = makeStyles(() => ({
     width: "100%",
     display: "flex",
     justifyContent: "center",
+  },
+  categoryWrap: {
+    marginTop: "5px",
+    marginBottom: "20px",
   },
 }));
 
@@ -59,7 +61,7 @@ export const ArticleView = ({ articleId }) => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="sm" className={classes.articlePage}>
+    <>
       {articleData ? (
         <>
           <Typography variant="subtitle2">
@@ -73,12 +75,19 @@ export const ArticleView = ({ articleId }) => {
             </Box>
           ) : null}
           <div dangerouslySetInnerHTML={{ __html: articleData.data }} />{" "}
+          <Button
+            className={classes.categoryWrap}
+            variant="outlined"
+            disabled={true}
+          >
+            {mapCategoryToText(articleData.category)}
+          </Button>
         </>
       ) : (
         <div className={classes.circleWrap}>
           <CircularProgress />
         </div>
       )}
-    </Container>
+    </>
   );
 };
