@@ -48,10 +48,10 @@ const App = () => {
           <PrivateRouteContainer path="/search">
             <SearchPage />
           </PrivateRouteContainer>
-          <Route path="*" render={() => <Redirect to="/home" />} />
           <PrivateRouteContainer path="/my-articles">
             <MyArticlesPage />
           </PrivateRouteContainer>
+          <Route path="*" render={() => <Redirect to="/home" />} />
         </Switch>
       </BrowserRouter>
     </Provider>

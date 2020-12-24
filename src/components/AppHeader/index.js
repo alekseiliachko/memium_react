@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HeaderMenu } from "../HeaderMenu";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../../assets/Logo.svg";
 import {
@@ -9,9 +10,9 @@ import {
   Typography,
   IconButton,
   Container,
+  Box,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import BookmarkIcon from "@material-ui/icons/BookmarkBorder";
 import { LOADING_STATUS } from "../../redux/common";
 import { useHistory } from "react-router-dom";
 
@@ -19,8 +20,15 @@ const useStyles = makeStyles(() => ({
   menuButton: {
     color: "#555555",
   },
-  title: {
+  link: {
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
+  divider: {
     flexGrow: 1,
+  },
+  title: {
     color: "#4E4E4E",
     marginLeft: "10px",
     fontWeight: "bold",
@@ -65,10 +73,15 @@ export const AppHeader = ({
       <AppBar position="static" className={classes.header}>
         <Container>
           <Toolbar>
-            <img src={Logo} alt="memium logo" />
-            <Typography variant="h5" className={classes.title}>
-              Memium
-            </Typography>
+            <Link to="/home" className={classes.link}>
+              <Box display="flex" alignItems="center">
+                <img src={Logo} alt="memium logo" />
+                <Typography variant="h5" className={classes.title}>
+                  Memium
+                </Typography>
+              </Box>
+            </Link>
+            <div className={classes.divider}></div>
             <IconButton
               className={classes.menuButton}
               aria-label="search"
@@ -77,13 +90,6 @@ export const AppHeader = ({
             >
               <SearchIcon />
             </IconButton>
-            <IconButton
-              className={classes.menuButton}
-              aria-label="bookmark"
-              color="inherit"
-            >
-              <BookmarkIcon />
-            </IconButton>
             <div>
               <Avatar
                 src={avatar}
@@ -91,6 +97,7 @@ export const AppHeader = ({
                 onClick={handleMenu}
               />
             </div>
+
             <HeaderMenu
               open={open}
               handleClose={handleClose}

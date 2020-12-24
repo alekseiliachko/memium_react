@@ -1,3 +1,4 @@
+import { act } from "react-dom/test-utils";
 import {
   AVATAR_LOADED,
   ATTEMPT_LOAD_AVATAR,
