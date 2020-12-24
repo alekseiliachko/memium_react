@@ -65,7 +65,7 @@ export const CommentsCenter = ({ articleId }) => {
     return (
       <div>
         <div>
-          {comments.length && (
+          {Boolean(comments.length) && (
             <Typography className={classes.titleWrap} variant="h6">
               Комментарии {comments.length}
             </Typography>

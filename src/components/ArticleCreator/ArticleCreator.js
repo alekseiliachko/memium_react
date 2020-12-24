@@ -24,6 +24,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   articlePage: {
     marginTop: "70px",
+    marginBottom: "70px",
   },
   imageContainer: {
     height: "300px",

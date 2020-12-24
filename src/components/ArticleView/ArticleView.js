@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
   },
   categoryWrap: {
-    marginTop: "5px",
+    marginTop: "20px",
     marginBottom: "20px",
   },
 }));
