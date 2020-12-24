@@ -1,4 +1,4 @@
-import { SET_ARTICLE_DATA } from "./actions";
+import { RESET_ARTICLE_DATA, SET_ARTICLE_DATA } from "./actions";
 
 const initialState = {
   articleDataById: {},
@@ -12,6 +12,14 @@ export const articleReducer = (store = initialState, action) => {
         articleDataById: {
           ...store.articleDataById,
           [action.articleId]: action.articleData,
+        },
+      };
+    case RESET_ARTICLE_DATA:
+      return {
+        ...store,
+        articleDataById: {
+          ...store.articleDataById,
+          [action.articleId]: undefined,
         },
       };
     default:

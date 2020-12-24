@@ -50,6 +50,8 @@ export const mapCategoryToText = (category) => {
       return "Биология";
     case "Chemistry":
       return "Химия";
+    case "Anime":
+      return "Аниме";
     case "IT":
       return "ИТ";
     case "Other":

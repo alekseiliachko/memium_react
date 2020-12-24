@@ -8,6 +8,12 @@ export const setArticleData = (articleId, articleData) => ({
   articleData,
 });
 
+export const RESET_ARTICLE_DATA = "RESET_ARTICLE_DATA";
+export const resetArticleData = (articleId) => ({
+  type: SET_ARTICLE_DATA,
+  articleId,
+});
+
 export const fetchArticleData = (articleId) => async (dispatch) => {
   const res = await ArticlesController.getArticleById(articleId);
   dispatch(setArticleData(articleId, res.data));

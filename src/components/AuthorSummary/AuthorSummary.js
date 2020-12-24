@@ -6,12 +6,15 @@ import { ProgressDecorator } from "../ProgressDecorator";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import BlockIcon from "@material-ui/icons/Block";
-import ChatIcon from "@material-ui/icons/Chat";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 import { LOADING_STATUS } from "../../redux/user/reducer";
 import { loadLikedList } from "../../redux/user/actions";
 import AccountsController from "../../api/AccountsController";
 import { useHistory } from "react-router-dom";
 import { useLazyUserData } from "../../redux/user/hooks";
+import ArticlesController from "../../api/ArticlesController";
+import { resetArticleData } from "../../redux/article/actions";
 
 const useStyles = makeStyles(() => ({
   subs: {
@@ -24,7 +27,6 @@ const useStyles = makeStyles(() => ({
   },
   avatar: {
     cursor: "pointer",
-    marginLeft: "20px",
   },
   row: {
     display: "flex",
@@ -58,7 +60,7 @@ export const AuthorSummary = ({ authorId, articleId }) => {
     [likedList]
   );
 
-  const canBeBlocked = useMemo(() => ownId !== authorId, [ownId, authorId]);
+  const notOwnedByUser = useMemo(() => ownId !== authorId, [ownId, authorId]);
 
   const handleLike = useCallback(async () => {
     if (canBeLiked) {
@@ -68,6 +70,12 @@ export const AuthorSummary = ({ authorId, articleId }) => {
     }
     dispatch(loadLikedList());
   }, [canBeLiked]);
+
+  const handleDelete = useCallback(async () => {
+    await ArticlesController.deleteArticle(articleId);
+    dispatch(resetArticleData(articleId));
+    history.push("/home");
+  }, []);
 
   const handleBlock = useCallback(async () => {
     await AccountsController.blUser(authorId);
@@ -84,29 +92,34 @@ export const AuthorSummary = ({ authorId, articleId }) => {
         <Typography gutterBottom> {authorData.bio}</Typography>
         <Divider />
         <div>
-          {likeStatus !== LOADING_STATUS.LOADED ? (
-            <ProgressDecorator />
-          ) : (
-            <>
-              <div onClick={handleLike} className={classes.row}>
-                {canBeLiked ? <FavoriteBorderIcon /> : <FavoriteIcon />}
-                <Typography className={classes.textInRow}>Лайк</Typography>
-              </div>
-              {canBeBlocked && (
-                <div className={classes.row} onClick={handleBlock}>
-                  <BlockIcon />
-                  <Typography className={classes.textInRow}>
-                    Заблокировать
-                  </Typography>
-                </div>
-              )}
-              <div className={classes.row}>
-                <ChatIcon />
-                <Typography className={classes.textInRow}>
-                  Комментарии
-                </Typography>
-              </div>
-            </>
+          <div onClick={handleLike} className={classes.row}>
+            {canBeLiked ? <FavoriteBorderIcon /> : <FavoriteIcon />}
+            <Typography className={classes.textInRow}>Лайк</Typography>
+          </div>
+          {!notOwnedByUser && (
+            <div
+              className={classes.row}
+              onClick={() => history.push(`/edit-article/${articleId}`)}
+            >
+              <EditIcon />
+              <Typography className={classes.textInRow}>
+                Редактировать
+              </Typography>
+            </div>
+          )}
+          {!notOwnedByUser && (
+            <div className={classes.row} onClick={handleDelete}>
+              <DeleteIcon />
+              <Typography className={classes.textInRow}>Удалить</Typography>
+            </div>
+          )}
+          {notOwnedByUser && (
+            <div className={classes.row} onClick={handleBlock}>
+              <BlockIcon />
+              <Typography className={classes.textInRow}>
+                Заблокировать
+              </Typography>
+            </div>
           )}
         </div>
       </div>

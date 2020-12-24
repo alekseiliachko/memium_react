@@ -39,6 +39,9 @@ const App = () => {
           <PrivateRouteContainer path="/new-article">
             <ArticleCreationPage />
           </PrivateRouteContainer>
+          <PrivateRouteContainer path="/edit-article/:articleId">
+            <ArticleCreationPage />
+          </PrivateRouteContainer>
           <PrivateRouteContainer path="/home">
             <HomePage />
           </PrivateRouteContainer>
