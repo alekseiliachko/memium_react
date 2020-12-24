@@ -6,6 +6,8 @@ import { LOADING_STATUS } from "../../redux/user/reducer";
 import { Box } from "@material-ui/core";
 import { CategorySelect } from "../CategorySelect";
 import { CATEGORY } from "../../redux/user/reducer";
+import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router";
 const useStyles = makeStyles({
   root: {
     maxWidth: 400,
@@ -13,6 +15,10 @@ const useStyles = makeStyles({
     boxShadow: "none",
   },
 });
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 export const Feed = ({
   feed,
@@ -43,7 +49,19 @@ export const Feed = ({
     }
   }, []);
 
+  const query = useQuery();
+  const history = useHistory();
   const [tab, setTab] = React.useState(0);
+
+  useEffect(() => {
+    const currentTab = query.get("tab");
+    if (currentTab) {
+      setTab(Number(currentTab));
+    } else {
+      history.replace(history.location.pathname + "?tab=0");
+    }
+  }, []);
+
   const handleChange = (event, newValue) => {
     setTab(newValue);
     if (newValue == 0) {
@@ -51,6 +69,7 @@ export const Feed = ({
     } else {
       loadCategory(CATEGORY[newValue]);
     }
+    history.replace(history.location.pathname + `?tab=${newValue}`);
   };
   return (
     <>
