@@ -9,6 +9,9 @@ import {
   CardActions,
   Button,
 } from "@material-ui/core";
+import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { goToAuthorsPage } from "../../redux/article/actions";
 
 const useStyles = makeStyles({
   root: {
@@ -38,11 +41,20 @@ const useStyles = makeStyles({
 
 export const UserCard = ({ data, onDelete, btn }) => {
   const classes = useStyles();
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   return (
     <Card className={classes.root} variant="outlined">
       <Box display="flex" alignItems="center">
         <Box>
-          <Avatar className={classes.avatar} src={data.imageData} />
+          <Avatar
+            onClick={() => {
+              dispatch(goToAuthorsPage(data.accountId, history));
+            }}
+            className={classes.avatar}
+            src={data.imageData}
+          />
         </Box>
         <Box maxWidth="70%">
           <CardContent className={classes.content}>

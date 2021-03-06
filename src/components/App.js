@@ -15,6 +15,7 @@ import { Redirect } from "react-router";
 import { SearchPage } from "../pages/SearchPage";
 import { MyArticlesPage } from "../pages/MyArticlesPage";
 import { NotFound } from "../pages/404";
+import { AuthorsArticlesPage } from "../pages/AuthorsArticlesPage";
 
 require("medium-editor/dist/css/medium-editor.css");
 require("medium-editor/dist/css/themes/default.css");
@@ -43,6 +44,9 @@ const App = () => {
           </PrivateRouteContainer>
           <PrivateRouteContainer path="/edit-article/:articleId">
             <ArticleCreationPage />
+          </PrivateRouteContainer>
+          <PrivateRouteContainer path="/author/:authorId">
+            <AuthorsArticlesPage />
           </PrivateRouteContainer>
           <PrivateRouteContainer path="/home">
             <HomePage />

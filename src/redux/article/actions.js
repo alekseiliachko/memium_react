@@ -1,7 +1,8 @@
 import ArticlesController from "../../api/ArticlesController";
+import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 
 export const SET_ARTICLE_DATA = "SET_ARTICLE_DATA";
-
 export const setArticleData = (articleId, articleData) => ({
   type: SET_ARTICLE_DATA,
   articleId,
@@ -17,4 +18,22 @@ export const resetArticleData = (articleId) => ({
 export const fetchArticleData = (articleId) => async (dispatch) => {
   const res = await ArticlesController.getArticleById(articleId);
   dispatch(setArticleData(articleId, res.data));
+};
+
+export const fetchArticlesByAccountId = async (accountId) => {
+  const res = await ArticlesController.getArticleByAccountId(accountId);
+  return res.data;
+};
+
+export const goToAuthorsPage = (accountId, history) => async (
+  dispatch,
+  getState
+) => {
+  const ownId = getState().userReducer?.details?.accountId;
+
+  if (ownId === accountId) {
+    history.push("/my-articles");
+  } else {
+    history.push(`/author/${accountId}`);
+  }
 };

@@ -2,6 +2,7 @@ import { RESET_ARTICLE_DATA, SET_ARTICLE_DATA } from "./actions";
 
 const initialState = {
   articleDataById: {},
+  articleIdsByAuthorName: {},
 };
 
 export const articleReducer = (store = initialState, action) => {

@@ -4,6 +4,7 @@ import { MyArticlesList } from "../components/MyArticlesList";
 import { Container, Divider, Typography, Box } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(() => ({
   articleView: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles(() => ({
 
 export const MyArticlesPage = () => {
   const classes = useStyles();
+  const myArticles = useSelector((store) => store.userReducer.myArticles);
   return (
     <div className="my-article-page">
       <AppHeaderContainer />
@@ -25,7 +27,7 @@ export const MyArticlesPage = () => {
           <Typography variant="h4">Мои статьи</Typography>
           <Divider></Divider>
         </Box>
-        <MyArticlesList />
+        <MyArticlesList articles={myArticles} />
       </Container>
     </div>
   );

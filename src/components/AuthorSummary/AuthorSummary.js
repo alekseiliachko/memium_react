@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { Box, Typography, Avatar, Divider } from "@material-ui/core";
+import { Avatar, Box, Divider, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
 import { ProgressDecorator } from "../ProgressDecorator";
@@ -14,7 +14,7 @@ import AccountsController from "../../api/AccountsController";
 import { useHistory } from "react-router-dom";
 import { useLazyUserData } from "../../redux/user/hooks";
 import ArticlesController from "../../api/ArticlesController";
-import { resetArticleData } from "../../redux/article/actions";
+import { goToAuthorsPage, resetArticleData } from "../../redux/article/actions";
 
 const useStyles = makeStyles(() => ({
   subs: {
@@ -87,7 +87,13 @@ export const AuthorSummary = ({ authorId, articleId }) => {
   const getContent = () => {
     return (
       <div>
-        <Avatar src={authorData.avatar} className={classes.avatar} />
+        <Avatar
+          onClick={() => {
+            dispatch(goToAuthorsPage(authorId, history));
+          }}
+          src={authorData.avatar}
+          className={classes.avatar}
+        />
         <Typography variant="h6"> {authorData.name || "default"}</Typography>
         <Typography gutterBottom> {authorData.bio}</Typography>
         <Divider />

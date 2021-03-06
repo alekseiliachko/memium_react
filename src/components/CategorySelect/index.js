@@ -29,7 +29,7 @@ export const CategorySelect = ({ handleChange, tab }) => {
   return (
     <Box my={2}>
       <AntTabs value={tab} onChange={handleChange} textColor="primary" centered>
-        <AntTab label="News" />
+        <AntTab label="Рекомендации" />
         <AntTab label="Астрология" />
         <AntTab label="Биология" />
         <AntTab label="Химия" />
