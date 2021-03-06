@@ -19,15 +19,3 @@ export const useLazyUserData = (authorId) => {
 
   return authorData;
 };
-
-export const useGoToAuthorsPage = (authorId) => {
-  const history = useHistory();
-
-  const ownId = useSelector((state) => state.userReducer?.details?.accountId);
-
-  if (ownId === authorId) {
-    history.push("/my-articles");
-  } else {
-    history.push(`/author/${authorId}`);
-  }
-};
