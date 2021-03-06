@@ -11,9 +11,8 @@ import { Box } from "@material-ui/core";
 import { ArticleCard } from "../ArticleCard";
 import { LOADING_STATUS } from "../../redux/user/reducer";
 
-export const MyArticlesList = () => {
+export const MyArticlesList = ({ articles }) => {
   const dispatch = useDispatch();
-  const myArticles = useSelector((store) => store.userReducer.myArticles);
   const likedList = useSelector((store) => store.userReducer.likedList);
   const likedListLoadingStatus = useSelector(
     (store) => store.userReducer.likedListLoadingStatus
@@ -28,7 +27,7 @@ export const MyArticlesList = () => {
 
   return (
     <Box display="flex" alignItems="center" flexDirection="column">
-      {myArticles.map((article) => (
+      {articles.map((article) => (
         <ArticleCard
           key={article.id}
           data={article}

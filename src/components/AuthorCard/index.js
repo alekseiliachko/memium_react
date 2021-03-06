@@ -5,6 +5,8 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PersonAddDisabledIcon from "@material-ui/icons/PersonAddDisabled";
 import { useHistory } from "react-router-dom";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import { goToAuthorsPage } from "../../redux/article/actions";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles({
   root: {
@@ -31,6 +33,7 @@ const useStyles = makeStyles({
 export const AuthorCard = ({ data, onDelete, onSub, subbed }) => {
   const history = useHistory();
   const classes = useStyles();
+  const dispatch = useDispatch();
   const onSubscribe = (e) => {
     e.stopPropagation();
     if (subbed) {
@@ -42,7 +45,7 @@ export const AuthorCard = ({ data, onDelete, onSub, subbed }) => {
   return (
     <Card
       className={classes.root}
-      onClick={() => history.push(`/account?id=${data.accountId}`)}
+      onClick={() => dispatch(goToAuthorsPage(data.accountId, history))}
     >
       <Box mb={2}>
         <Avatar
