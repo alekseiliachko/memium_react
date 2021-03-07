@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { AuthorCard } from "../AuthorCard";
 import { ArticleCard } from "../ArticleCard";
-import { LOADING_STATUS } from "../../redux/user/reducer";
+import { CATEGORY, LOADING_STATUS } from "../../redux/user/reducer";
 import { Box } from "@material-ui/core";
 import { CategorySelect } from "../CategorySelect";
-import { CATEGORY } from "../../redux/user/reducer";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router";
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 400,

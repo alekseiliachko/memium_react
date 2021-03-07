@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`profile header container renders correctly with data ready 1`] = `
+<div
+  className="profile-header"
+>
+  <div
+    className="MuiBox-root MuiBox-root-6"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-8 profile-header__details"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-9"
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          Круто чел
+        </h4>
+        <button
+          aria-label="bookmark"
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <h6
+        className="MuiTypography-root details__about MuiTypography-subtitle1"
+      >
+        populated
+      </h6>
+      <a
+        href="/profile?tab=2"
+        onClick={[Function]}
+      >
+        <p
+          className="MuiTypography-root makeStyles-subs-7 MuiTypography-body1"
+        >
+          1
+           подписок
+        </p>
+      </a>
+    </div>
+    <div
+      className="MuiBox-root MuiBox-root-10 profile-header__avatar"
+    >
+      <input
+        accept="image/*"
+        className="makeStyles-input-3"
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="MuiButtonBase-root MuiIconButton-root makeStyles-avatatLoader-4"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <div
+            className="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1"
+          >
+            <img
+              className="MuiAvatar-img"
+              src="blob:http://localhost:3000/3dcb8dbb-23c7-4abf-8958-52663e0013da"
+            />
+          </div>
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root makeStyles-icon-5"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 4V1h2v3h3v2H5v3H3V6H0V4h3zm3 6V7h3V4h7l1.83 2H21c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V10h3zm7 9c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-3.2-5c0 1.77 1.43 3.2 3.2 3.2s3.2-1.43 3.2-3.2-1.43-3.2-3.2-3.2-3.2 1.43-3.2 3.2z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`profile header container renders correctly without data 1`] = `
+<div
+  className="profile-header"
+>
+  <div
+    className="MuiBox-root MuiBox-root-11"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-12 profile-header__details"
+    >
+      <div
+        className="MuiBox-root MuiBox-root-13"
+      >
+        <h4
+          className="MuiTypography-root MuiTypography-h4"
+        >
+          
+        </h4>
+        <button
+          aria-label="bookmark"
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <h6
+        className="MuiTypography-root details__about MuiTypography-subtitle1"
+      >
+        
+      </h6>
+      <a
+        href="/profile?tab=2"
+        onClick={[Function]}
+      >
+        <p
+          className="MuiTypography-root makeStyles-subs-7 MuiTypography-body1"
+        >
+          0
+           подписок
+        </p>
+      </a>
+    </div>
+    <div
+      className="MuiBox-root MuiBox-root-14 profile-header__avatar"
+    >
+      <input
+        accept="image/*"
+        className="makeStyles-input-3"
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="MuiButtonBase-root MuiIconButton-root makeStyles-avatatLoader-4"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <div
+            className="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1 MuiAvatar-colorDefault"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiAvatar-fallback"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              />
+            </svg>
+          </div>
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root makeStyles-icon-5"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 4V1h2v3h3v2H5v3H3V6H0V4h3zm3 6V7h3V4h7l1.83 2H21c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V10h3zm7 9c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-3.2-5c0 1.77 1.43 3.2 3.2 3.2s3.2-1.43 3.2-3.2-1.43-3.2-3.2-3.2-3.2 1.43-3.2 3.2z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

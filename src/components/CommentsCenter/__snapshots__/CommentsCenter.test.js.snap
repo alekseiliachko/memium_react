@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-5 makeStyles-root-1"
+>
+  <div>
+    <div>
+      <h6
+        className="MuiTypography-root makeStyles-titleWrap-3 MuiTypography-h6"
+      >
+        Комментарии 
+        1
+      </h6>
+      <div>
+        <div
+          className="makeStyles-wrap-10"
+        >
+          <div
+            className="MuiAvatar-root MuiAvatar-circle"
+          >
+            <img
+              className="MuiAvatar-img"
+              src="blob:http://localhost:3000/678d4330-3d93-4470-98f3-4619ed42c932"
+            />
+          </div>
+          <div
+            className="makeStyles-textBlock-12"
+          >
+            <div
+              className="makeStyles-deleteIcon-11"
+              onClick={[Function]}
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </div>
+            <span
+              className="MuiTypography-root MuiTypography-subtitle2"
+            >
+              Круто чел
+            </span>
+            <span
+              className="MuiTypography-root MuiTypography-subtitle2"
+            >
+              , Mar 06
+            </span>
+            <div>
+              123
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h6
+        className="MuiTypography-root MuiTypography-h6"
+      >
+        Добавить комментарий
+      </h6>
+      <div
+        className="MuiFormControl-root MuiTextField-root makeStyles-textInput-2"
+      >
+        <div
+          className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+          onClick={[Function]}
+        >
+          <textarea
+            aria-invalid={false}
+            autoFocus={false}
+            className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+            disabled={false}
+            id="outlined-multiline-static"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            rows={4}
+            value=""
+          />
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-6 MuiOutlinedInput-notchedOutline"
+            style={
+              Object {
+                "paddingLeft": 8,
+              }
+            }
+          >
+            <legend
+              className="PrivateNotchedOutline-legend-7"
+              style={
+                Object {
+                  "width": 0.01,
+                }
+              }
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "&#8203;",
+                  }
+                }
+              />
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-buttonSubmit-4"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          Отправить
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

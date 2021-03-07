@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`feed container renders correctly 1`] = `
+Array [
+  <div
+    className="MuiBox-root MuiBox-root-2"
+  >
+    <div
+      className="MuiTabs-root WithStyles(ForwardRef(Tabs))-root-3"
+    >
+      <div
+        className="MuiTabs-scroller MuiTabs-fixed"
+        onScroll={[Function]}
+        style={
+          Object {
+            "marginBottom": null,
+            "overflow": "hidden",
+          }
+        }
+      >
+        <div
+          className="MuiTabs-flexContainer MuiTabs-centered"
+          onKeyDown={[Function]}
+          role="tablist"
+        >
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root Component-root-5 MuiTab-textColorPrimary"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              Рекомендации
+            </span>
+          </button>
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root Component-root-5 MuiTab-textColorPrimary"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              Астрология
+            </span>
+          </button>
+          <button
+            aria-selected={true}
+            className="MuiButtonBase-root MuiTab-root Component-root-5 MuiTab-textColorPrimary Mui-selected"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              Биология
+            </span>
+          </button>
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root Component-root-5 MuiTab-textColorPrimary"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              Химия
+            </span>
+          </button>
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root Component-root-5 MuiTab-textColorPrimary"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              Айти
+            </span>
+          </button>
+          <button
+            aria-selected={false}
+            className="MuiButtonBase-root MuiTab-root Component-root-5 MuiTab-textColorPrimary"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="tab"
+            tabIndex={-1}
+            type="button"
+          >
+            <span
+              className="MuiTab-wrapper"
+            >
+              Другое
+            </span>
+          </button>
+        </div>
+        <span
+          className="PrivateTabIndicator-root-6 PrivateTabIndicator-colorSecondary-8 MuiTabs-indicator WithStyles(ForwardRef(Tabs))-indicator-4"
+          style={
+            Object {
+              "left": 0,
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>,
+  <div
+    className="MuiBox-root MuiBox-root-10 feed"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-11"
+    />
+  </div>,
+]
+`;

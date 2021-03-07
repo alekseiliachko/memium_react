@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Tabs, Tab } from "@material-ui/core";
+import { Box, Tab, Tabs } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { CATEGORY } from "../../redux/user/reducer";
 
 const AntTab = withStyles(() => ({
   root: {

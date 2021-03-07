@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { Avatar, Box, Divider, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
-import { ProgressDecorator } from "../ProgressDecorator";
+import { ProgressDecorator } from "../ProgressDecorator/ProgressDecorator";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import BlockIcon from "@material-ui/icons/Block";
