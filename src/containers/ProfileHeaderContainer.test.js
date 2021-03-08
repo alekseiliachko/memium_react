@@ -74,6 +74,6 @@ describe("profile header container", () => {
     });
 
     expect(tree.toJSON()).toMatchSnapshot();
-    expect(loadAvatar).toBeCalled();
+    expect(loadAvatar).toBeCalledTimes(1);
   });
 });

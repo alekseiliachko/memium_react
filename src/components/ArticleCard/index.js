@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Card, Box, Typography, IconButton, Avatar } from "@material-ui/core";
+import { Avatar, Box, Card, IconButton, Typography } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import AccountsOpenController from "../../api/AccountOpenController";
