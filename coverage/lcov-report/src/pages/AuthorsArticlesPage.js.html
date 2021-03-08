@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -113,7 +113,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,18 +123,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,7 +159,7 @@ import { fetchArticlesByAccountId } from "../redux/article/actions";
 import { MyArticlesList } from "../components/MyArticlesList";
 import { useLazyUserData } from "../redux/user/hooks";
 &nbsp;
-const useStyles = <span class="cstat-no" title="statement not covered" >makeStyles(<span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+const useStyles = makeStyles(() =&gt; ({
   articleView: {
     marginTop: "70px",
     marginBottom: "70px",
@@ -169,28 +169,28 @@ const useStyles = <span class="cstat-no" title="statement not covered" >makeStyl
   },
 }));
 &nbsp;
-export const AuthorsArticlesPage = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-  const classes = <span class="cstat-no" title="statement not covered" >useStyles();</span>
-  const { authorId } = <span class="cstat-no" title="statement not covered" >useParams();</span>
-  const authorData = <span class="cstat-no" title="statement not covered" >useLazyUserData(authorId);</span>
-  const [data, setData] = <span class="cstat-no" title="statement not covered" >React.useState();</span>
+export const AuthorsArticlesPage = () =&gt; {
+  const classes = useStyles();
+  const { authorId } = useParams();
+  const authorData = useLazyUserData(authorId);
+  const [data, setData] = React.useState();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
-    const newData = <span class="cstat-no" title="statement not covered" >await fetchArticlesByAccountId(authorId);</span>
-<span class="cstat-no" title="statement not covered" >    setData(newData);</span>
+  useEffect(async () =&gt; {
+    const newData = await fetchArticlesByAccountId(authorId);
+    setData(newData);
   }, [authorId]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div className="authors-article-page"&gt;
       &lt;AppHeaderContainer /&gt;
       &lt;Container className={classes.articleView}&gt;
         &lt;Box my={5}&gt;
           &lt;Typography variant="h4"&gt;
-            Статьи автора: {authorData &amp;&amp; authorData.name}{" "}
+            Статьи автора: {authorData &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >authorData.name}</span>{" "}
           &lt;/Typography&gt;
           &lt;Divider /&gt;
         &lt;/Box&gt;
-        {data &amp;&amp; &lt;MyArticlesList articles={data} /&gt;}
+        {data &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;MyArticlesList articles={data} /&gt;}</span>
       &lt;/Container&gt;
     &lt;/div&gt;
   );
@@ -202,7 +202,7 @@ export const AuthorsArticlesPage = <span class="cstat-no" title="statement not c
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Mar 08 2021 17:32:12 GMT+0300 (Moscow Standard Time)
+                at Mon Mar 08 2021 17:46:47 GMT+0300 (Moscow Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

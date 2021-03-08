@@ -24,7 +24,7 @@ const props = {
   liked: true,
 };
 
-describe("article view page", () => {
+describe("article card", () => {
   it("renders correctly", async () => {
     ArticlesController.getArticleImage.mockResolvedValue("");
     AccountOpenController.getAccountsDetails.mockResolvedValue({
