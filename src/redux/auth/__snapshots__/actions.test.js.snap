@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions create LOGIN_ATTEMPT, LOGIN_SUCCESS if token exist 1`] = `
+Array [
+  Object {
+    "type": "LOGIN_ATTEMPT",
+  },
+  Object {
+    "payload": "name",
+    "type": "LOGIN_SUCCESS",
+  },
+]
+`;
+
+exports[`actions create LOGIN_ATTEMPT, LOGOUT if token not exist 1`] = `
+Array [
+  Object {
+    "type": "LOGIN_ATTEMPT",
+  },
+  Object {
+    "type": "LOG_OUT",
+  },
+]
+`;
+
+exports[`actions should create AUTH_FAILURE action 1`] = `
+Array [
+  Object {
+    "payload": "",
+    "type": "AUTH_FAILURE",
+  },
+]
+`;
+
+exports[`actions should create LOG_OUT action 1`] = `
+Array [
+  Object {
+    "type": "LOG_OUT",
+  },
+]
+`;
+
+exports[`actions should create LOGIN_ATTEMPT action 1`] = `
+Array [
+  Object {
+    "type": "LOGIN_ATTEMPT",
+  },
+]
+`;
+
+exports[`actions should create LOGIN_SUCCESS action 1`] = `
+Array [
+  Object {
+    "payload": "",
+    "type": "LOGIN_SUCCESS",
+  },
+]
+`;
+
+exports[`actions should create SIGNUP_SUCCESS action 1`] = `
+Array [
+  Object {
+    "type": "SIGNUP_SUCCESS",
+  },
+]
+`;
+
+exports[`async actions create LOGIN_ATTEMPT, LOGIN_SUCCESS when fetching has been done 1`] = `
+Array [
+  Object {
+    "type": "LOGIN_ATTEMPT",
+  },
+  Object {
+    "payload": "",
+    "type": "LOGIN_SUCCESS",
+  },
+]
+`;
+
+exports[`async actions create SIGNUP_SUCCESS when fetching has been done 1`] = `
+Array [
+  Object {
+    "type": "SIGNUP_SUCCESS",
+  },
+]
+`;

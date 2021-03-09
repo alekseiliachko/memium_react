@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`authReducer should handle LOG_OUT 1`] = `
+Object {
+  "authState": "LOGGED_OUT",
+  "username": "",
+}
+`;
+
+exports[`authReducer should handle LOGIN_SUCCESS_ATTEMPT 1`] = `
+Object {
+  "authState": "SUCCESS",
+  "username": "user",
+}
+`;
+
+exports[`authReducer should handle SET_LOGIN_ATTEMPT 1`] = `
+Object {
+  "authState": "ATTEMPT",
+  "username": "",
+}
+`;

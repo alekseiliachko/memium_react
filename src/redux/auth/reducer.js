@@ -6,7 +6,7 @@ export const AUTH_STATE = {
   ATTEMPT: "ATTEMPT",
 };
 
-const initialState = {
+export const initialState = {
   username: "",
   authState: AUTH_STATE.ATTEMPT,
 };
