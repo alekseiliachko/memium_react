@@ -1,6 +1,6 @@
 import { RESET_ARTICLE_DATA, SET_ARTICLE_DATA } from "./actions";
 
-const initialState = {
+export const initialState = {
   articleDataById: {},
   articleIdsByAuthorName: {},
 };

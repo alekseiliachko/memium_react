@@ -1,6 +1,4 @@
 import ArticlesController from "../../api/ArticlesController";
-import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
 
 export const SET_ARTICLE_DATA = "SET_ARTICLE_DATA";
 export const setArticleData = (articleId, articleData) => ({

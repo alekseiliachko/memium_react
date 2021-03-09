@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`articleReducer should handle SET_ARTICLE_DATA 1`] = `
+Object {
+  "articleDataById": Object {
+    "d3268ef9-bb52-4967-b1ee-14826b9d8a18": Object {
+      "authorId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+      "category": "Chemistry",
+      "data": "yes, and Jews are responsible.",
+      "date": 1615046988090,
+      "description": null,
+      "id": "d3268ef9-bb52-4967-b1ee-14826b9d8a18",
+      "imageUrl": null,
+      "title": "Chem?",
+    },
+  },
+  "articleIdsByAuthorName": Object {},
+}
+`;

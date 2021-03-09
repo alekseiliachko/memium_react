@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions should create RESET_ARTICLE_DATA action 1`] = `
+Array [
+  Object {
+    "articleId": "d3268ef9-bb52-4967-b1ee-14826b9d8a18",
+    "type": "SET_ARTICLE_DATA",
+  },
+]
+`;
+
+exports[`actions should create SET_ARTICLE_DATA action 1`] = `
+Array [
+  Object {
+    "articleData": Object {
+      "authorId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+      "category": "Chemistry",
+      "data": "yes, and Jews are responsible.",
+      "date": 1615046988090,
+      "description": null,
+      "id": "d3268ef9-bb52-4967-b1ee-14826b9d8a18",
+      "imageUrl": null,
+      "title": "Chem?",
+    },
+    "articleId": "d3268ef9-bb52-4967-b1ee-14826b9d8a18",
+    "type": "SET_ARTICLE_DATA",
+  },
+]
+`;
+
+exports[`async actions create SET_ARTICLE_DATA when fetching has been done 1`] = `
+Array [
+  Object {
+    "articleData": Object {
+      "articleData": Object {
+        "authorId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+        "category": "Chemistry",
+        "data": "yes, and Jews are responsible.",
+        "date": 1615046988090,
+        "description": null,
+        "id": "d3268ef9-bb52-4967-b1ee-14826b9d8a18",
+        "imageUrl": null,
+        "title": "Chem?",
+      },
+    },
+    "articleId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+    "type": "SET_ARTICLE_DATA",
+  },
+]
+`;
