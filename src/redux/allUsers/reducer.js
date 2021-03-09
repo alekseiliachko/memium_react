@@ -1,6 +1,6 @@
 import { SET_USER_AVATAR, SET_USER_DATA } from "./actions";
 
-const initialState = {
+export const initialState = {
   userDataById: {},
 };
 

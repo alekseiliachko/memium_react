@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions should create set_avatar_data action 1`] = `
+Array [
+  Object {
+    "avatar": "blob:http://localhost:3000/595ee9e0-fbd4-4712-98e1-1fd759dca517",
+    "type": "SET_USER_AVATAR",
+    "userId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+  },
+]
+`;
+
+exports[`actions should create set_user_data action 1`] = `
+Array [
+  Object {
+    "type": "SET_USER_DATA",
+    "userData": Object {
+      "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+      "avatar": "blob:http://localhost:3000/595ee9e0-fbd4-4712-98e1-1fd759dca517",
+      "bio": "populated",
+      "dob": 1615046987793,
+      "gender": "gender",
+      "name": null,
+    },
+    "userId": "32df86b7-872d-45d5-8a51-e217f0bc973d",
+  },
+]
+`;
+
+exports[`async actions create SET_AVATAR_DATA when fetching has been done 1`] = `
+Array [
+  Object {
+    "avatar": Object {
+      "avatar": "blob:http://localhost:3000/595ee9e0-fbd4-4712-98e1-1fd759dca517",
+    },
+    "type": "SET_USER_AVATAR",
+    "userId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+  },
+]
+`;
+
+exports[`async actions create SET_USER_DATA when fetching has been done 1`] = `
+Array [
+  Object {
+    "type": "SET_USER_DATA",
+    "userData": Object {
+      "userData": Object {
+        "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+        "avatar": "blob:http://localhost:3000/595ee9e0-fbd4-4712-98e1-1fd759dca517",
+        "bio": "populated",
+        "dob": 1615046987793,
+        "gender": "gender",
+        "name": null,
+      },
+    },
+    "userId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+  },
+]
+`;
