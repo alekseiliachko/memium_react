@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`searchReducer should handle UPDATE_SEARCH_RESULTS 1`] = `
+Object {
+  "articles": Array [],
+  "authors": Array [],
+}
+`;

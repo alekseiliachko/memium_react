@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions should create UPDATE_SEARCH_RESULTS action 1`] = `
+Array [
+  Object {
+    "articles": Array [],
+    "authors": Array [],
+    "type": "UPDATE_SEARCH_RESULTS",
+  },
+]
+`;
+
+exports[`async actions create SIGNUP_SUCCESS when fetching has been done 1`] = `
+Array [
+  Object {
+    "articles": Array [],
+    "authors": Array [],
+    "type": "UPDATE_SEARCH_RESULTS",
+  },
+]
+`;

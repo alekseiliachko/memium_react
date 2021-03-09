@@ -1,6 +1,6 @@
 import { UPDATE_SEARCH_RESULTS } from "./actions";
 
-const initialState = {
+export const initialState = {
   articles: [],
   authors: [],
 };
