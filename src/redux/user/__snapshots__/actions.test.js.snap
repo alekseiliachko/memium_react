@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions should create ATTEMPT_LOAD_AVATAR action 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_AVATAR",
+  },
+]
+`;
+
+exports[`actions should create ATTEMPT_LOAD_BL action 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_BL",
+  },
+]
+`;
+
+exports[`actions should create ATTEMPT_LOAD_DETAILS action 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_DETAILS",
+  },
+]
+`;
+
+exports[`actions should create ATTEMPT_LOAD_FEED action 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_FEED",
+  },
+]
+`;
+
+exports[`actions should create ATTEMPT_LOAD_LIKED action 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_LIKED",
+  },
+]
+`;
+
+exports[`actions should create ATTEMPT_LOAD_MY_ARTICLES action 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_MY_ARTICLES",
+  },
+]
+`;
+
+exports[`actions should create ATTEMPT_LOAD_SUBS action 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_SUBS",
+  },
+]
+`;
+
+exports[`actions should create ATTEMPT_UPDATE_DETAILS action 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_UPDATE_DETAILS",
+  },
+]
+`;
+
+exports[`actions should create AVATAR_LOADED action 1`] = `
+Array [
+  Object {
+    "payload": "blob:http://localhost:3000/3dcb8dbb-23c7-4abf-8958-52663e0013da",
+    "type": "AVATAR_LOADED",
+  },
+]
+`;
+
+exports[`actions should create BL_LOADED action 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      Object {
+        "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+        "bio": "populated",
+        "imageData": null,
+        "name": null,
+        "username": "zilber",
+      },
+    ],
+    "type": "BL_LOADED",
+  },
+]
+`;
+
+exports[`actions should create DETAILS_LOADED action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+      "bio": "populated",
+      "imageData": null,
+      "name": null,
+      "username": "zilber",
+    },
+    "type": "DETAILS_LOADED",
+  },
+]
+`;
+
+exports[`actions should create FEED_LOADED action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "accounts": null,
+      "articles": Array [],
+    },
+    "type": "FEED_LOADED",
+  },
+]
+`;
+
+exports[`actions should create LIKED_LOADED action 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      Object {
+        "authorId": "5d48bb9e-f1d9-41d2-bb02-9c4f578bd282",
+        "category": "Anime",
+        "date": 1615046988090,
+        "description": null,
+        "id": "9064e587-3c29-4547-a5a6-51a8149456f8",
+        "imageUrl": null,
+        "title": "Русские мемчанские",
+      },
+    ],
+    "type": "LIKED_LOADED",
+  },
+]
+`;
+
+exports[`actions should create MY_ARTICLES_LOADED action 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      Object {
+        "authorId": "5d48bb9e-f1d9-41d2-bb02-9c4f578bd282",
+        "category": "Anime",
+        "date": 1615046988090,
+        "description": null,
+        "id": "9064e587-3c29-4547-a5a6-51a8149456f8",
+        "imageUrl": null,
+        "title": "Русские мемчанские",
+      },
+    ],
+    "type": "MY_ARTICLES_LOADED",
+  },
+]
+`;
+
+exports[`actions should create PUSH_TO_LIKED action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "authorId": "5d48bb9e-f1d9-41d2-bb02-9c4f578bd282",
+      "category": "Anime",
+      "date": 1615046988090,
+      "description": null,
+      "id": "9064e587-3c29-4547-a5a6-51a8149456f8",
+      "imageUrl": null,
+      "title": "Русские мемчанские",
+    },
+    "type": "PUSH_TO_LIKED",
+  },
+]
+`;
+
+exports[`actions should create SUBS_LOADED action 1`] = `
+Array [
+  Object {
+    "payload": Array [
+      Object {
+        "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+        "bio": "populated",
+        "imageData": null,
+        "name": null,
+        "username": "zilber",
+      },
+    ],
+    "type": "SUBS_LOADED",
+  },
+]
+`;
+
+exports[`async tests create ATTEMPT_LOAD_AVATAR, AVATAR_LOADED when avatar loaded 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_AVATAR",
+  },
+  Object {
+    "payload": "blob:http://localhost:3000/3dcb8dbb-23c7-4abf-8958-52663e0013da",
+    "type": "AVATAR_LOADED",
+  },
+]
+`;
+
+exports[`async tests create ATTEMPT_LOAD_AVATAR, AVATAR_LOADED when avatar updated 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_AVATAR",
+  },
+  Object {
+    "payload": "blob:http://localhost:3000/3dcb8dbb-23c7-4abf-8958-52663e0013da",
+    "type": "AVATAR_LOADED",
+  },
+]
+`;
+
+exports[`async tests create ATTEMPT_LOAD_BL, BL_LOADED when loading blacklist 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_BL",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+        "bio": "populated",
+        "imageData": null,
+        "name": null,
+        "username": "zilber",
+      },
+    ],
+    "type": "BL_LOADED",
+  },
+]
+`;
+
+exports[`async tests create ATTEMPT_LOAD_DETAILS, DETAILS_LOADED when loading details 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_DETAILS",
+  },
+  Object {
+    "payload": Object {
+      "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+      "bio": "populated",
+      "imageData": null,
+      "name": null,
+      "username": "zilber",
+    },
+    "type": "DETAILS_LOADED",
+  },
+]
+`;
+
+exports[`async tests create ATTEMPT_LOAD_LIKED, LIKED_LOADED when loading liked 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_LIKED",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "authorId": "5d48bb9e-f1d9-41d2-bb02-9c4f578bd282",
+        "category": "Anime",
+        "date": 1615046988090,
+        "description": null,
+        "id": "9064e587-3c29-4547-a5a6-51a8149456f8",
+        "imageUrl": null,
+        "title": "Русские мемчанские",
+      },
+    ],
+    "type": "LIKED_LOADED",
+  },
+]
+`;
+
+exports[`async tests create ATTEMPT_LOAD_LIKED, LIKED_LOADED when loading liked 2`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_LIKED",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "authorId": "5d48bb9e-f1d9-41d2-bb02-9c4f578bd282",
+        "category": "Anime",
+        "date": 1615046988090,
+        "description": null,
+        "id": "9064e587-3c29-4547-a5a6-51a8149456f8",
+        "imageUrl": null,
+        "title": "Русские мемчанские",
+      },
+    ],
+    "type": "LIKED_LOADED",
+  },
+]
+`;
+
+exports[`async tests create ATTEMPT_LOAD_SUBS, SUBS_LOADED when loading subs 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_SUBS",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+        "bio": "populated",
+        "imageData": null,
+        "name": null,
+        "username": "zilber",
+      },
+    ],
+    "type": "SUBS_LOADED",
+  },
+]
+`;
+
+exports[`async tests create ATTEMPT_UPDATE_DETAILS, DETAILS_LOADED when updating details 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_UPDATE_DETAILS",
+  },
+  Object {
+    "payload": Object {
+      "accountId": "22bb3fe5-185c-4c87-8633-1586586506b7",
+      "bio": "populated",
+      "imageData": null,
+      "name": null,
+      "username": "zilber",
+    },
+    "type": "DETAILS_LOADED",
+  },
+]
+`;
+
+exports[`async tests create BL_LOADED when delete from blacklist 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_BL",
+  },
+  Object {
+    "payload": undefined,
+    "type": "BL_LOADED",
+  },
+]
+`;
+
+exports[`async tests create BL_LOADED when delete from blacklist 2`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_BL",
+  },
+  Object {
+    "payload": undefined,
+    "type": "BL_LOADED",
+  },
+]
+`;
+
+exports[`async tests create LIKED_LOADED when loading liked 1`] = `
+Array [
+  Object {
+    "type": "ATTEMPT_LOAD_LIKED",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "authorId": "5d48bb9e-f1d9-41d2-bb02-9c4f578bd282",
+        "category": "Anime",
+        "date": 1615046988090,
+        "description": null,
+        "id": "9064e587-3c29-4547-a5a6-51a8149456f8",
+        "imageUrl": null,
+        "title": "Русские мемчанские",
+      },
+    ],
+    "type": "LIKED_LOADED",
+  },
+]
+`;

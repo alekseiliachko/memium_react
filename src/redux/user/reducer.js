@@ -59,7 +59,7 @@ export const mapCategoryToText = (category) => {
   }
 };
 
-const initialState = {
+export const initialState = {
   avatar: "",
   blackList: [],
   details: {
