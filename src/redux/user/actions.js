@@ -128,6 +128,7 @@ export const loadBl = () => async (dispatch) => {
   dispatch(blLoadingAttempt());
   const bl = await AccountsController.getBlUsers();
   dispatch(setLoadedBl(bl.data));
+  console.log("there");
 };
 
 export const deleteFromBl = (userId) => async (dispatch) => {

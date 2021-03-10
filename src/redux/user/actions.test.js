@@ -183,12 +183,15 @@ describe("async tests", () => {
       expect(store.getActions()).toMatchSnapshot();
     });
   });
-  it("create BL_LOADED when delete from blacklist", () => {
+  it("create BL_LOADED when delete from blacklist", async () => {
     AccountsController.deleteUserFromBl.mockResolvedValue();
-    AccountsController.getBlUsers.mockResolvedValue([]);
-    return store.dispatch(deleteFromBl(account.accountId)).then(() => {
-      expect(store.getActions()).toMatchSnapshot();
-    });
+    AccountsController.getBlUsers.mockResolvedValue({ data: [] });
+    return await store
+      .dispatch(deleteFromBl(account.accountId))
+      .then(async () => {
+        await new Promise((res) => setTimeout(res, 0));
+        expect(store.getActions()).toMatchSnapshot();
+      });
   });
   it("create ATTEMPT_LOAD_LIKED, LIKED_LOADED when loading liked", () => {
     AccountsController.getLikedPosts.mockResolvedValue({ data: [article] });

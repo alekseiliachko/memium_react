@@ -4,7 +4,6 @@ import { MemoryRouter } from "react-router";
 import { createMount } from "@material-ui/core/test-utils";
 import { fetchArticleData } from "../redux/article/actions";
 import { loadAvatar } from "../redux/user/actions";
-import CommentsController from "../api/CommentsController";
 import { AuthorsArticlesPage } from "./AuthorsArticlesPage";
 import { fetchUserAvatar, fetchUserData } from "../redux/allUsers/actions";
 

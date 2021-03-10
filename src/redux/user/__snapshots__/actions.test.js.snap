@@ -273,28 +273,6 @@ Array [
 ]
 `;
 
-exports[`async tests create ATTEMPT_LOAD_LIKED, LIKED_LOADED when loading liked 2`] = `
-Array [
-  Object {
-    "type": "ATTEMPT_LOAD_LIKED",
-  },
-  Object {
-    "payload": Array [
-      Object {
-        "authorId": "5d48bb9e-f1d9-41d2-bb02-9c4f578bd282",
-        "category": "Anime",
-        "date": 1615046988090,
-        "description": null,
-        "id": "9064e587-3c29-4547-a5a6-51a8149456f8",
-        "imageUrl": null,
-        "title": "Русские мемчанские",
-      },
-    ],
-    "type": "LIKED_LOADED",
-  },
-]
-`;
-
 exports[`async tests create ATTEMPT_LOAD_SUBS, SUBS_LOADED when loading subs 1`] = `
 Array [
   Object {
@@ -339,42 +317,8 @@ Array [
     "type": "ATTEMPT_LOAD_BL",
   },
   Object {
-    "payload": undefined,
+    "payload": Array [],
     "type": "BL_LOADED",
-  },
-]
-`;
-
-exports[`async tests create BL_LOADED when delete from blacklist 2`] = `
-Array [
-  Object {
-    "type": "ATTEMPT_LOAD_BL",
-  },
-  Object {
-    "payload": undefined,
-    "type": "BL_LOADED",
-  },
-]
-`;
-
-exports[`async tests create LIKED_LOADED when loading liked 1`] = `
-Array [
-  Object {
-    "type": "ATTEMPT_LOAD_LIKED",
-  },
-  Object {
-    "payload": Array [
-      Object {
-        "authorId": "5d48bb9e-f1d9-41d2-bb02-9c4f578bd282",
-        "category": "Anime",
-        "date": 1615046988090,
-        "description": null,
-        "id": "9064e587-3c29-4547-a5a6-51a8149456f8",
-        "imageUrl": null,
-        "title": "Русские мемчанские",
-      },
-    ],
-    "type": "LIKED_LOADED",
   },
 ]
 `;
